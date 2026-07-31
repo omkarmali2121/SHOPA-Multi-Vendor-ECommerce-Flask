@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}
+Update Address | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/update_address.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="address-page">
+
+    <div class="page-header">
+        <h1>Edit Delivery Address</h1>
+        <p>Update your shipping information</p>
+    </div>
+
+
+    <form action="" method="POST" class="address-form">
+
+
+        <!-- Address Type -->
+
+        <div class="input-box">
+
+            <label>Address Type</label>
+
+            <select name="address_type">
+
+                <option value="Home"
+                {% if address.address_type = "Home" %}selected{% endif %}>
+                    Home
+                </option>
+
+                <option value="Office"
+                {% if address.address_type = "Office" %}selected{% endif %}>
+                    Office
+                </option>
+
+                <option value="Other"
+                {% if address.address_type = "Other" %}selected{% endif %}>
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Name -->
+
+        <div class="input-box">
+
+            <label>Receiver Name</label>
+
+            <input 
+                type="text"
+                name="receiver_name"
+                value="{{ address.receiver_name }}"
+                required>
+
+        </div>
+
+
+        <!-- Mobile -->
+
+        <div class="input-box">
+
+            <label>Mobile Number</label>
+
+            <input 
+                type="text"
+                name="mobile"
+                value="{{ address.mobile }}"
+                required>
+
+        </div>
+
+
+        <!-- City -->
+
+        <div class="input-box">
+
+            <label>City</label>
+
+            <input 
+                type="text"
+                name="city"
+                value="{{ address.city }}"
+                required>
+
+        </div>
+
+
+        <!-- State -->
+
+        <div class="input-box">
+
+            <label>State</label>
+
+            <input 
+                type="text"
+                name="state"
+                value="{{ address.state }}"
+                required>
+
+        </div>
+
+
+        <!-- Pincode -->
+
+        <div class="input-box">
+
+            <label>Pincode</label>
+
+            <input 
+                type="text"
+                name="pincode"
+                value="{{ address.pincode }}"
+                required>
+
+        </div>
+
+
+        <!-- Full Address -->
+
+        <div class="input-box full-width">
+
+            <label>Complete Address</label>
+
+            <textarea 
+                name="address"
+                rows="5"
+                required>{{ address.address }}</textarea>
+
+        </div>
+
+
+        <!-- Default Address -->
+
+        <div class="checkbox-box">
+
+            <input 
+                type="checkbox"
+                name="default"
+                {% if address.is_default = 1 %}checked{% endif %}>
+
+            <label>
+                Set as default delivery address
+            </label>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="button-group">
+
+            <button class="update-btn">
+
+                <i class="fas fa-save"></i>
+                Update Address
+
+            </button>
+
+
+            <a href="/delivery-address"
+               class="cancel-btn">
+
+               Cancel
+
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

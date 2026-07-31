@@ -1,0 +1,373 @@
+/* ======================================
+   SHOPA Vendor Earnings
+====================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* ===============================
+   Header
+================================ */
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.page-header h1{
+    font-size:32px;
+    color:#1e293b;
+    margin-bottom:6px;
+}
+
+.page-header p{
+    color:#64748b;
+    font-size:15px;
+}
+
+/* ===============================
+   Cards
+================================ */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+    color: #f7f2f2;
+
+}
+
+.amount,
+.order,
+.delivered,
+.pending{
+    color: #000000;
+}
+
+.card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    color:#fff;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+}
+
+/* Card Colors */
+
+.revenue{
+
+    background:linear-gradient(135deg,#10b981,#059669);
+
+}
+
+.orders{
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+}
+
+.delivered{
+
+    background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+
+}
+
+.pending{
+
+    background:linear-gradient(135deg,#f59e0b,#d97706);
+
+}
+
+.card h2{
+
+    font-size:28px;
+
+    margin-bottom:5px;
+
+}
+
+.card span{
+
+    font-size:15px;
+
+    opacity:.95;
+
+}
+
+/* ===============================
+   Table
+================================ */
+
+.table-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.table-header h2{
+
+    color:#1e293b;
+
+}
+
+.table-responsive{
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#2563eb;
+
+}
+
+thead th{
+
+    color:#fff;
+
+    padding:15px;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+
+tbody td{
+
+    padding:16px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    color:#334155;
+
+    font-size:15px;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+/* ===============================
+   Status Badge
+================================ */
+
+.badge{
+
+    display:inline-block;
+
+    padding:7px 15px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.badge.delivered{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.badge.pending{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+.badge.shipped{
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+}
+
+.badge.packed{
+
+    background:#ede9fe;
+
+    color:#6d28d9;
+
+}
+
+/* ===============================
+   Responsive
+================================ */
+
+@media(max-width:992px){
+
+.cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+.icon{
+
+width:60px;
+
+height:60px;
+
+font-size:24px;
+
+}
+
+.card h2{
+
+font-size:24px;
+
+}
+
+table{
+
+min-width:700px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.page-header h1{
+
+font-size:26px;
+
+}
+
+.card{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+My Addresses | SHOPA
+{% endblock %}
+
+{% block css %}
+ <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/delivery_address.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Back Button -->
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+<div class="address-page">
+
+    <div class="address-header">
+        <h1>My Delivery Addresses</h1>
+
+        <a href="/add-address" class="add-btn">
+            <i class="fas fa-plus"></i>
+            Add New Address
+        </a>
+    </div>
+
+
+    <!-- Address Card 1 -->
+
+    <div class="address-card">
+
+        <div class="address-info">
+
+            <h3>Home</h3>
+
+            <p>
+                
+            </p>
+
+            <p>
+                123, MG Road, Solapur,
+                Maharashtra - 413001
+            </p>
+
+            <p>
+                Phone: +91 9876543210
+            </p>
+
+        </div>
+
+
+        <div class="address-actions">
+
+            <a href="/update_address">
+                <i class="fas fa-pen"></i>
+                Edit
+            </a>
+
+
+            <a href="#">
+                <i class="fas fa-trash"></i>
+                Delete
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

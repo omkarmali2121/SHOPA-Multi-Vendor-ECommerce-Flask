@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}
+Shopping Cart | SHOPA
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/cart.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Cart Section -->
+
+<section class="cart-section py-5">
+
+    <div class="container">
+
+        <h2 class="mb-4">Shopping Cart</h2>
+
+        <div class="row">
+
+            <!-- Cart Items -->
+
+            <div class="col-lg-8">
+
+            {% for item in cart_items %}
+            
+            <div class="cart-item">
+            
+                <img src="{{ url_for(
+                'static',
+                filename='uploads/products/' + item['image']
+                ) }}">
+            
+                <div class="item-details">
+            
+                    <h5>{{ item['name'] }}</h5>
+            
+                    <p class="price">
+                    
+                        ₹{{ item['price'] }}
+                    
+                    </p>
+                    
+                    <p>
+                    
+                        Total:
+                        ₹{{ item['price'] * item['quantity'] }}
+                    
+                    </p>
+            
+                </div>
+            
+                <div class="quantity">
+                
+                    <a href="/cart/decrease/{{ item['id'] }}" class="qty-btn">
+                
+                        -
+                
+                    </a>
+                
+                    <span class="qty-value">
+                
+                        {{ item['quantity'] }}
+                
+                    </span>
+                
+                    <a href="/cart/increase/{{ item['id'] }}" class="qty-btn">
+                
+                        +
+                
+                    </a>
+                
+                </div>
+
+                <a href="/cart/remove/{{ item['id'] }}"
+                   class="remove">
+
+                    <i class="fas fa-trash"></i>
+
+                </a>
+            
+            </div>
+            
+            {% endfor %}
+
+            </div>
+
+            <!-- Cart Summary -->
+
+            <div class="col-lg-4">
+
+                <div class="cart-summary">
+
+                    <h4>Order Summary</h4>
+
+                    <hr>
+
+                    <span>₹{{ total }}</span>
+
+
+                    <a href="{{ url_for('checkout') }}" class="checkout-btn">
+                        Proceed To Checkout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

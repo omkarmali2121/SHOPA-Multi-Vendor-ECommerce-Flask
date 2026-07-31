@@ -1,0 +1,95 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Vendor Reports | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static',
+      filename='css/vendor_reports.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+
+      <h1>Sales Reports</h1>
+
+      <p>
+
+            View complete product sales statistics.
+
+      </p>
+
+</div>
+
+
+<div class="summary">
+
+      <div class="summary-card">
+
+            <h2>{{ summary["total_sales"] }}</h2>
+
+            <span>Total Delivered Orders</span>
+
+      </div>
+
+      <div class="summary-card revenue">
+
+            <h2>
+
+                  ₹ {{ "{:,.2f}".format(summary["total_revenue"]) }}
+
+            </h2>
+
+            <span>Total Revenue</span>
+
+      </div>
+
+</div>
+
+
+<div class="table-card">
+
+      <table>
+
+            <thead>
+
+                  <tr>
+
+                        <th>Product</th>
+
+                        <th>Total Orders</th>
+
+                        <th>Total Revenue</th>
+
+                  </tr>
+
+            </thead>
+
+            <tbody>
+
+                  {% for item in reports %}
+
+                  <tr>
+
+                        <td>{{ item["product_name"] }}</td>
+
+                        <td>{{ item["total_orders"] }}</td>
+
+                        <td>
+
+                              ₹ {{ "{:,.2f}".format(item["revenue"]) }}
+
+                        </td>
+
+                  </tr>
+
+                  {% endfor %}
+
+            </tbody>
+
+      </table>
+
+</div>
+
+{% endblock %}

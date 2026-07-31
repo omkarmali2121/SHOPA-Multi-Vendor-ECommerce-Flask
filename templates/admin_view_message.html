@@ -1,0 +1,45 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+View Message  | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/admin_view_message.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+<h2>Message Details</h2>
+
+<div class="card">
+
+<p><strong>Name :</strong> {{ message["name"] }}</p>
+
+<p><strong>Email :</strong> {{ message["email"] }}</p>
+
+<p><strong>Subject :</strong> {{ message["subject"] }}</p>
+
+<p><strong>Message :</strong></p>
+
+<div class="message-box">
+
+{{ message["message"] }}
+
+</div>
+
+<a href="/admin/messages" class="btn btn-primary">
+
+Back
+
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}

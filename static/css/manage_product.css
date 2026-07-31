@@ -1,0 +1,185 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+}
+
+.dashboard{
+    display:flex;
+}
+
+
+/* Sidebar */
+
+.sidebar{
+    width:250px;
+    min-height:100vh;
+    background:#0f172a;
+    color:white;
+    padding:20px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    margin:15px 0;
+}
+
+.sidebar a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:12px;
+    border-radius:8px;
+}
+
+.sidebar a:hover,
+.sidebar .active{
+    background:#2563eb;
+}
+
+
+/* Main */
+
+.main-content{
+    flex:1;
+    padding:30px;
+}
+
+
+/* Header */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.add-btn{
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:8px;
+}
+
+.add-btn:hover{
+    background:#15803d;
+}
+
+
+/* Search */
+
+.search-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+
+/* Table */
+
+.table-container{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+
+th{
+    background:#1e293b;
+    color:white;
+}
+
+
+th, td{
+    padding:14px;
+    text-align:left;
+    border-bottom:1px solid #ddd;
+}
+
+
+.product-img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+
+/* Status */
+
+.status{
+    padding:5px 10px;
+    border-radius:15px;
+    font-size:14px;
+}
+
+.status.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+
+/* Buttons */
+
+.edit-btn,
+.delete-btn{
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    color:white;
+}
+
+
+.edit-btn{
+    background:#2563eb;
+}
+
+
+.delete-btn{
+    background:#dc2626;
+}
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        min-height:auto;
+    }
+
+    .header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+}

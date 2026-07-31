@@ -1,0 +1,254 @@
+/* =========================
+   SHOPA Checkout Cart CSS
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+/* Page */
+
+.checkout-page{
+    padding:40px 0;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.page-title{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:30px;
+    color:#222;
+}
+
+/* Layout */
+
+.checkout-wrapper{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+    align-items:start;
+}
+
+/* =========================
+   Billing Form
+========================= */
+
+.checkout-form{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.checkout-form h2{
+    margin-bottom:25px;
+    color:#1e293b;
+}
+
+.checkout-form input,
+.checkout-form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:18px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus{
+
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,.2);
+
+}
+
+.checkout-form h3{
+
+    margin:20px 0 10px;
+
+}
+
+/* Payment */
+
+.payment-box{
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-bottom:25px;
+
+}
+
+.payment-box label{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    font-size:16px;
+
+}
+
+/* Button */
+
+.place-btn{
+
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#2563eb;
+    color:#fff;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.place-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* =========================
+   Order Summary
+========================= */
+
+.order-summary{
+
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.order-summary h2{
+
+    margin-bottom:25px;
+
+}
+
+.summary-card{
+
+    display:flex;
+    gap:15px;
+    align-items:center;
+    margin-bottom:20px;
+    padding-bottom:20px;
+    border-bottom:1px solid #eee;
+
+}
+
+.summary-card img{
+
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:10px;
+
+}
+
+.summary-details{
+
+    flex:1;
+
+}
+
+.summary-details h4{
+
+    margin-bottom:8px;
+    color:#222;
+
+}
+
+.summary-details p{
+
+    color:#666;
+    margin:4px 0;
+
+}
+
+.summary-total{
+
+    font-weight:bold;
+    color:#2563eb;
+    font-size:18px;
+
+}
+
+.grand-total{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:25px;
+
+}
+
+.grand-total h3{
+
+    color:#111;
+
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media(max-width:992px){
+
+.checkout-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-title{
+
+font-size:26px;
+
+}
+
+.checkout-form,
+.order-summary{
+
+padding:20px;
+
+}
+
+.summary-card{
+
+flex-direction:column;
+text-align:center;
+
+}
+
+.summary-card img{
+
+width:120px;
+height:120px;
+
+}
+
+}

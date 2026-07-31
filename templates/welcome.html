@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome | SHOPA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/welcome.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="welcome-card">
+
+    <img src="{{ url_for('static', filename='images/SOPA.png') }}"
+         class="logo"
+         alt="SHOPA">
+
+    <h1>SHOPA</h1>
+
+    <p class="subtitle">
+
+        Professional E-Commerce Platform
+
+    </p>
+
+    <div class="cards">
+
+        <a href="/login"
+           class="card">
+
+            <i class="fa-solid fa-user"></i>
+
+            <h2>User Login</h2>
+
+            <p>
+
+                Shop products, track orders and manage your profile.
+
+            </p>
+
+            <span>
+
+                Login →
+
+            </span>
+
+        </a>
+
+        <a href="/admin/login"
+           class="card admin">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            <h2>Admin Panel</h2>
+
+            <p>
+
+                Manage products, categories, orders and users.
+
+            </p>
+
+            <span>
+
+                Login →
+
+            </span>
+
+        </a>
+
+        <a href="/vendor/login" class="card vendor">
+        
+            <i class="fa-solid fa-store"></i>
+        
+            <h2>Vendor Portal</h2>
+        
+            <p>
+        
+                Sell your products, manage inventory, track orders and monitor your sales.
+        
+            </p>
+        
+            <span>
+        
+                Login →
+        
+            </span>
+        
+        </a>
+
+    </div>
+
+    <div class="footer">
+
+        © 2026 SHOPA • Secure • Fast • Reliable
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

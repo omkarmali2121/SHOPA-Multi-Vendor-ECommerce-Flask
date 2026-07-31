@@ -1,0 +1,91 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Users | SHOPA
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin_users.css') }}">
+{% endblock %}
+
+{% block content %} 
+<div class="container">
+
+    <div class="header">
+        <h1>Manage Users</h1>
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <input type="text"
+               placeholder="Search User...">
+
+    </div>
+
+    <!-- Users Table -->
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Joined Date</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for user in users %}
+
+            <tr>
+
+                <td>{{ user["id"] }}</td>
+
+                <td>{{ user["fullname"] }}</td>
+
+                <td>{{ user["email"] }}</td>
+
+                <td>{{ user["mobile"] }}</td>
+
+                <td>{{ user["created_at"] }}</td>
+
+                <td>
+
+                    <a href="/admin/view-user/{{ user['id'] }}"
+                    class="view-btn">
+                        <i class="fas fa-eye"></i>
+                    </a>
+
+                    <a href="/admin/delete-user/{{ user['id'] }}"
+                    class="delete-btn"
+                    onclick="return confirm('Delete this user?')">
+                        <i class="fas fa-trash"></i>
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+{% endblock %}
+</body>
+</html>

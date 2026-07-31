@@ -1,0 +1,81 @@
+{% block css %}
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/vendor_login.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="login-header">
+
+            <img src="{{ url_for('static',
+            filename='images/SHOPA.png') }}"
+            class="logo">
+
+            <h1>Vendor Login</h1>
+
+            <p>
+                Login to manage your products and orders.
+            </p>
+
+        </div>
+
+        <form action="/vendor/login"
+              method="POST">
+
+            <div class="input-box">
+
+                <label>Email Address</label>
+
+                <input type="email"
+                       name="email"
+                       placeholder="Enter Email"
+                       required>
+
+            </div>
+
+            <div class="input-box">
+
+                <label>Password</label>
+
+                <input type="password"
+                       name="password"
+                       placeholder="Enter Password"
+                       required>
+
+            </div>
+
+            <button type="submit"
+                    class="login-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="bottom-links">
+
+            <a href="/vendor/register">
+
+                Become a Vendor
+
+            </a>
+
+            <a href="/vendor/forgot-password">
+
+                Forgot Password?
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,170 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Vendor Settings | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/vendor_settings.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="settings-container">
+
+    <div class="page-title">
+
+        <h1>Vendor Settings</h1>
+
+        <p>
+
+            Manage your account preferences and security.
+
+        </p>
+
+    </div>
+
+    <div class="settings-grid">
+
+        <!-- Change Password -->
+
+        <div class="setting-card">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h3>Change Password</h3>
+
+            <p>
+
+                Update your account password.
+
+            </p>
+
+            <a href="/vendor/change-password">
+
+                Manage
+
+            </a>
+
+        </div>
+
+        <!-- Edit Profile -->
+
+        <div class="setting-card">
+
+            <i class="fa-solid fa-user-pen"></i>
+
+            <h3>Edit Profile</h3>
+
+            <p>
+
+                Update store information.
+
+            </p>
+
+            <a href="/vendor/profile/edit">
+
+                Edit
+
+            </a>
+
+        </div>
+
+        <!-- Notifications -->
+
+        <div class="setting-card">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <h3>Notifications</h3>
+
+            <p>
+
+                Manage email notifications.
+
+            </p>
+
+            <label class="switch">
+
+                <input type="checkbox" checked>
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+        <!-- Dark Theme -->
+
+        <div class="setting-card">
+
+            <i class="fa-solid fa-moon"></i>
+
+            <h3>Dark Theme</h3>
+
+            <p>
+
+                Enable dark mode.
+
+            </p>
+
+            <label class="switch">
+
+                <input type="checkbox" id="dark-theme-toggle">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+        <!-- Logout -->
+
+        <div class="setting-card">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <h3>Logout</h3>
+
+            <p>
+
+                Logout from vendor account.
+
+            </p>
+
+            <a href="/vendor/logout">
+
+                Logout
+
+            </a>
+
+        </div>
+
+        <!-- Delete -->
+
+        <div class="setting-card danger">
+
+            <i class="fa-solid fa-trash"></i>
+
+            <h3>Delete Account</h3>
+
+            <p>
+
+                Permanently delete vendor account.
+
+            </p>
+
+            <a href="/vendor/delete-account">
+
+                Delete
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

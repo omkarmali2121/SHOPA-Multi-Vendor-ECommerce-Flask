@@ -1,0 +1,97 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Add-Product | SHOPA
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin_add-product.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="form-box">
+
+        <h2>
+            <i class="fas fa-plus-circle"></i>
+            Add New Product
+        </h2>
+
+        <form action="/admin/add-product"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text"
+                       name="product_name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <select name="category" required>
+                    <option value="">Select Category</option>
+
+                    {% for category in categories %}
+                        <option value="{{ category['category_name'] }}">
+                            {{ category['category_name'] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Price (₹)</label>
+
+                    <input type="number"
+                           name="price"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Stock Quantity</label>
+
+                    <input type="number"
+                           name="stock"
+                           required>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+
+                <textarea name="description"
+                          rows="5"
+                          required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Product Image</label>
+
+                <input type="file"
+                       name="image"
+                       accept="image/*"
+                       required>
+            </div>
+
+            <button type="submit"
+                    class="btn-submit">
+
+                <i class="fas fa-save"></i>
+                Add Product
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

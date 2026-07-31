@@ -1,0 +1,124 @@
+/* Back Button */
+.back-btn {
+  background: #06386e;     
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #000101;     
+}
+
+.container h1 {
+  color: var(--text);
+}
+
+.order-card{
+
+display:flex;
+gap:20px;
+
+background:var(--surface);
+color:var(--text);
+
+padding:20px;
+
+margin-bottom:20px;
+
+border:1px solid var(--border);
+border-radius:12px;
+
+box-shadow:0 5px 20px var(--shadow);
+
+}
+
+.order-card img{
+
+width:150px;
+
+height:150px;
+
+object-fit:cover;
+
+border-radius:10px;
+
+}
+
+.order-details{
+
+flex:1;
+color:var(--text);
+
+}
+
+.order-details h3,
+.order-details p {
+  color: var(--text);
+}
+
+.status{
+
+padding:6px 12px;
+
+background:#ffc107;
+
+border-radius:30px;
+
+font-weight:bold;
+
+}
+
+.status{
+
+padding:8px 16px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+color:white;
+
+display:inline-block;
+
+}
+
+.status.pending{
+
+background:#ffc107;
+
+color:black;
+
+}
+
+.status.confirmed{
+
+background:#0d6efd;
+
+}
+
+.status.shipped{
+
+background:#17a2b8;
+
+}
+
+.status.delivered{
+
+background:#198754;
+
+}
+
+.status.cancelled{
+
+background:#dc3545;
+
+}
+
+.alert-info {
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+}

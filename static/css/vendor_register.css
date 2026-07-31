@@ -1,0 +1,336 @@
+/* ===========================
+   Vendor Registration
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* ===========================
+Container
+=========================== */
+
+.register-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px 20px;
+
+}
+
+/* ===========================
+Card
+=========================== */
+
+.register-card{
+
+    width:100%;
+
+    max-width:900px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+Header
+=========================== */
+
+.register-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.register-header .logo{
+
+    width:90px;
+
+    margin-bottom:15px;
+
+}
+
+.register-header h1{
+
+    font-size:34px;
+
+    color:#2d3748;
+
+    margin-bottom:10px;
+
+}
+
+.register-header p{
+
+    color:#718096;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+Section
+=========================== */
+
+.section{
+
+    margin-bottom:35px;
+
+}
+
+.section h2{
+
+    font-size:22px;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+    border-left:5px solid #2563eb;
+
+    padding-left:12px;
+
+}
+
+/* ===========================
+Grid
+=========================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+/* ===========================
+Input
+=========================== */
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:20px;
+
+}
+
+.input-group label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.input-group input,
+
+.input-group textarea{
+
+    padding:14px;
+
+    border:1px solid #dcdfe4;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    outline:none;
+
+}
+
+.input-group input:focus,
+
+.input-group textarea:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+/* ===========================
+Upload
+=========================== */
+
+.upload-box{
+
+    margin-bottom:25px;
+
+}
+
+.upload-box label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+.upload-box input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:2px dashed #2563eb;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:#f8fbff;
+
+}
+
+/* ===========================
+Terms
+=========================== */
+
+.terms{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:30px 0;
+
+}
+
+.terms span{
+
+    color:#555;
+
+    font-size:14px;
+
+}
+
+/* ===========================
+Button
+=========================== */
+
+.register-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(90deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.register-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 25px rgba(37,99,235,.3);
+
+}
+
+/* ===========================
+Bottom
+=========================== */
+
+.bottom{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#666;
+
+}
+
+.bottom a{
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.bottom a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media(max-width:768px){
+
+.register-card{
+
+    padding:25px;
+
+}
+
+.grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.register-header h1{
+
+    font-size:28px;
+
+}
+
+.section h2{
+
+    font-size:20px;
+
+}
+
+}

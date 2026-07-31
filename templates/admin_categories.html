@@ -1,0 +1,98 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Categories | SHOPA
+{% endblock %}
+
+{% block css %}
+   <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin_categories.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="header">
+
+        <h1>Manage Categories</h1>
+
+    </div>
+
+    <!-- Add Category -->
+
+    <div class="category-form">
+
+        <form action="/admin/categories"
+              method="POST">
+
+            <input type="text"
+                   name="category_name"
+                   placeholder="Enter Category Name"
+                   required>
+
+            <button type="submit">
+                <i class="fas fa-plus"></i>
+                Add Category
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Categories Table -->
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for category in categories %}
+
+                <tr>
+
+                    <td>{{ category[0] }}</td>
+
+                    <td>{{ category[1] }}</td>
+
+                    <td>
+
+                        <a href="/admin/edit-category/{{ category[0] }}"
+                           class="edit-btn">
+
+                            <i class="fas fa-edit"></i>
+
+                        </a>
+
+                        <a href="/admin/delete-category/{{ category[0] }}"
+                           class="delete-btn">
+
+                            <i class="fas fa-trash"></i>
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

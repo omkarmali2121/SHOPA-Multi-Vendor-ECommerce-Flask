@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Admin Panel | SHOPA
+        {% endblock %}
+    </title>
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/admin_base.css') }}">
+
+    <!-- Page Specific CSS -->
+    {% block css %}{% endblock %}    
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body class="theme-light">
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <h2>SHOPA</h2>
+
+
+    <ul>
+
+        <li>
+            <a href="/admin/dashboard"class="{% if active_page == 'dashboard' %}active{% endif %}">
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/admin/categories"class="{% if active_page == 'categories' %}active{% endif %}">
+                <i class="fas fa-boxes"></i>
+                Categories
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/admin/products"class="{% if active_page == 'products' %}active{% endif %}">
+                <i class="fas fa-box"></i>
+                Products
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/admin/orders"class="{% if active_page == 'orders' %}active{% endif %}">
+                <i class="fas fa-shopping-cart"></i>
+                Orders
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/admin/users"class="{% if active_page == 'users' %}active{% endif %}">
+                <i class="fas fa-users"></i>
+                Users
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/admin/vendors"class="{% if active_page == 'vendors' %}active{% endif %}">
+                <i class="fas fa-store"></i>
+                Vendors
+            </a>
+        </li>
+
+        <li>
+            <a href="/admin/messages"class="{% if active_page == 'messages' %}active{% endif %}">
+                <i class="fas fa-envelope"></i>
+                Messages
+            </a>
+        </li>
+
+        <li>
+            <a href="/admin/settings"class="{% if active_page == 'settings' %}active{% endif %}">
+                <i class="fas fa-gear"></i>
+                Settings
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/admin/logout">
+                <i class="fas fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </li>
+
+
+    </ul>
+
+
+</aside>
+
+
+<!-- Main Content -->
+
+<section class="main-content">
+
+    <div class="admin-topbar">
+
+    <div class="topbar-left">
+        <h2>Admin Panel</h2>
+    </div>
+
+
+    <div class="topbar-right">
+
+        <!-- Notification -->
+
+    <div class="notification-box">
+
+        <button class="notification-btn" id="notificationBtn">
+
+            <i class="fas fa-bell"></i>
+
+            {% if notification_count > 0 %}
+            <span class="badge">
+
+                {{ notification_count }}
+
+            </span>
+            {% endif %}
+
+        </button>
+
+        <div class="notification-dropdown" id="notificationDropdown">
+
+            <div class="notification-header">
+
+                <h4>Notifications</h4>
+
+                <a href="/admin/notifications/read-all">
+
+                    Mark All Read
+
+                </a>
+
+            </div>
+
+            {% if notifications %}
+
+            {% for n in notifications %}
+
+            <div class="notification-item {% if n['is_read']==0 %}unread{% endif %}">
+
+                <h5>{{ n["title"] }}</h5>
+
+                <p>{{ n["message"] }}</p>
+
+                <small>{{ n["created_at"] }}</small>
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <div class="notification-item">
+
+                No Notifications
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+        <button class="theme-toggle" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Admin Profile -->
+
+        <div class="admin-profile">
+
+            <img src="{{ url_for('static',
+            filename='images/admin.png') }}">
+
+        </div>
+
+    </div>
+
+</div>
+<div class="admin-notificaton">
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == "admin_success" %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+</div>
+
+    {% block content %}
+
+    {% endblock %}
+
+
+</section>
+
+
+</body>
+
+<script>
+
+const btn=document.getElementById("notificationBtn");
+
+const menu=document.getElementById("notificationDropdown");
+
+btn.onclick=function(){
+
+    menu.style.display=
+    menu.style.display==="block"
+    ? "none"
+    : "block";
+
+}
+
+window.onclick=function(e){
+
+    if(!btn.contains(e.target) &&
+       !menu.contains(e.target)){
+
+        menu.style.display="none";
+
+    }
+
+}
+
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('shopa-theme');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+function applyTheme(isDark) {
+    document.body.classList.toggle('dark-theme', isDark);
+    document.documentElement.classList.toggle('dark-theme', isDark);
+    if (themeToggle) {
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+}
+
+if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    applyTheme(true);
+} else {
+    applyTheme(false);
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+        const isDark = !document.body.classList.contains('dark-theme');
+        applyTheme(isDark);
+        localStorage.setItem('shopa-theme', isDark ? 'dark' : 'light');
+    });
+}
+
+</script>
+
+</html>

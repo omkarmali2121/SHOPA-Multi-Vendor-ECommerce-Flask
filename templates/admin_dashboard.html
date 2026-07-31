@@ -1,0 +1,101 @@
+{% extends "/admin_base.html" %}
+
+{% block title %}
+Admin Dashboard | SHOPA
+{% endblock %}
+
+{% block css %}
+   <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Main Content -->
+
+<div class="">
+
+    <main class="content">
+
+        <h1>Admin Dashboard</h1>
+
+        <!-- Statistics -->
+
+        <div class="cards">
+
+        <a href="/admin/products" class="card-link"> 
+            <div class="card">
+                   <h3>Total Products</h3>
+                    <p>{{ total_products }}</p>
+            </div>
+        </a>
+
+        <a href="/admin/orders" class="card-link">
+            <div class="card">
+                <h3>Total Orders</h3>
+                <p>{{ total_orders }}</p>
+            </div>
+        </a>
+
+        <a href="/admin/users" class="card-link">    
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>{{ total_users }}</p>
+            </div>
+        </a>
+
+        <a href="/admin/revenue" class="card-link">    
+            <div class="card">
+                <h3>Total Revenue</h3>
+                <p>₹{{ "{:,.2f}".format(total_revenue) }}</p>
+            </div>
+        </a>
+
+        </div>
+
+        <!-- Recent Orders -->
+
+        <div class="table-section">
+
+            <h2>Recent Orders</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                        {% for order in recent_orders %}
+
+                        <tr>
+
+                            <td>#{{ order[0] }}</td>
+
+                            <td>{{ order[1] }}</td>
+
+                            <td>₹{{ order[2] }}</td>
+
+                            <td>{{ order[3] }}</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+{% endblock %}

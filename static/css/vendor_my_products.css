@@ -1,0 +1,270 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.page-header h1{
+    font-size:32px;
+    color:#1e293b;
+    font-weight:700;
+}
+
+.add-btn{
+    text-decoration:none;
+    background:#2563eb;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.table-container{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:1000px;
+
+}
+
+thead{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+thead th{
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+tbody tr:hover{
+
+    background:#eef4ff;
+
+}
+
+tbody td{
+
+    padding:16px;
+
+    border-bottom:1px solid #e2e8f0;
+
+    vertical-align:middle;
+
+}
+
+.product-img{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+
+    border:1px solid #ddd;
+
+}
+
+.status{
+
+    display:inline-block;
+
+    padding:7px 16px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status.pending{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+}
+
+.status.approved{
+
+    background:#d1fae5;
+
+    color:#047857;
+
+}
+
+.status.rejected{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+.edit-btn,
+.delete-btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    padding:8px 15px;
+
+    border-radius:8px;
+
+    color:#fff;
+
+    font-size:14px;
+
+    margin-right:6px;
+
+    transition:.3s;
+
+}
+
+.edit-btn{
+
+    background:#0d6efd;
+
+}
+
+.edit-btn:hover{
+
+    background:#0b5ed7;
+
+}
+
+.delete-btn{
+
+    background:#dc3545;
+
+}
+
+.delete-btn:hover{
+
+    background:#bb2d3b;
+
+}
+
+.no-data{
+
+    text-align:center;
+
+    padding:50px;
+
+    color:#64748b;
+
+    font-size:18px;
+
+}
+
+@media(max-width:992px){
+
+.page-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.page-header h1{
+
+    font-size:28px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-header h1{
+
+    font-size:24px;
+
+}
+
+.add-btn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.product-img{
+
+    width:60px;
+
+    height:60px;
+
+}
+
+.edit-btn,
+.delete-btn{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    text-align:center;
+
+}
+
+}

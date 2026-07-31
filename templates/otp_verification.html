@@ -1,0 +1,57 @@
+{% block css %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/otp_verification.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="otp-box">
+
+        <div class="header">
+
+            <i class="fas fa-shield-alt shield-icon"></i>
+
+            <h1>OTP Verification</h1>
+
+            <p>
+                Enter the 6-digit OTP sent to your email address.
+            </p>
+
+        </div>
+
+
+        <form action="/verify-otp" method="POST">
+
+            <div class="otp-inputs">
+                <input type="text" name="otp" maxlength="6" inputmode="numeric" autocomplete="one-time-code" required>
+            </div>
+
+            <button type="submit" class="verify-btn">
+                Verify OTP
+            </button>
+
+        </form>
+
+
+        <div class="footer-links">
+
+            <p>
+                Didn't receive OTP?
+                <a href="/resend-otp">
+                    Resend OTP
+                </a>
+            </p>
+
+            <a href="/forgot-password">
+                <i class="fas fa-arrow-left"></i>
+                Back
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock %}

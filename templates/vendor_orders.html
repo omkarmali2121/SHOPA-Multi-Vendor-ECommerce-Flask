@@ -1,0 +1,134 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Vendor Orders | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/vendor_orders.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>My Orders</h1>
+
+    <p>
+        Manage all customer orders for your products.
+    </p>
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Image</th>
+
+<th>Order ID</th>
+
+<th>Customer</th>
+
+<th>Product</th>
+
+<th>Qty</th>
+
+<th>Total</th>
+
+<th>Payment</th>
+
+<th>Status</th>
+
+<th>Date</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for order in orders %}
+
+<tr>
+
+<td>
+
+<img src="{{ url_for('static',
+filename='uploads/products/' + order['image']) }}"
+class="product-img">
+
+</td>
+
+<td>#{{ order["id"] }}</td>
+
+<td>{{ order["fullname"] }}</td>
+
+<td>{{ order["product_name"] }}</td>
+
+<td>{{ order["quantity"] }}</td>
+
+<td>
+
+₹ {{ "%.2f"|format(order["total_amount"]) }}
+
+</td>
+
+<td>{{ order["payment_method"] }}</td>
+
+<td>
+
+<span class="status {{ order['status']|lower }}">
+
+{{ order["status"] }}
+
+</span>
+
+</td>
+
+<td>{{ order["order_date"] }}</td>
+
+<td>
+
+<a href="/vendor/order/{{ order['id'] }}"
+class="view-btn">
+
+<i class="fa-solid fa-eye"></i>
+
+</a>
+
+<a href="/vendor/update-status/{{ order['id'] }}"
+class="edit-btn">
+
+<i class="fa-solid fa-truck-fast"></i>
+
+</a>
+
+<a href="/download-invoice/{{ order['id'] }}"
+class="invoice-btn">
+
+<i class="fa-solid fa-file-pdf"></i>
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

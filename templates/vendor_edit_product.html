@@ -1,0 +1,190 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Edit Product | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/vendor_edit_product.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>Edit Product</h1>
+
+    <p>
+        Update your product information.
+    </p>
+
+</div>
+
+<div class="form-container">
+
+<form action="/vendor/edit-product/{{ product['id'] }}"
+      method="POST"
+      enctype="multipart/form-data">
+
+    <div class="form-grid">
+
+        <!-- Product Name -->
+
+        <div class="form-group">
+
+            <label>Product Name</label>
+
+            <input
+                type="text"
+                name="product_name"
+                value="{{ product['product_name'] }}"
+                required>
+
+        </div>
+
+        <!-- Category -->
+
+        <div class="form-group">
+
+            <label>Category</label>
+
+            <select name="category" required>
+
+                <option value="Men"
+                {% if product["category"]=="Men" %}selected{% endif %}>
+                Men
+                </option>
+
+                <option value="Women"
+                {% if product["category"]=="Women" %}selected{% endif %}>
+                Women
+                </option>
+
+                <option value="Kids"
+                {% if product["category"]=="Kids" %}selected{% endif %}>
+                Kids
+                </option>
+
+                <option value="Electronics"
+                {% if product["category"]=="Electronics" %}selected{% endif %}>
+                Electronics
+                </option>
+
+                <option value="Footwear"
+                {% if product["category"]=="Footwear" %}selected{% endif %}>
+                Footwear
+                </option>
+
+                <option value="Beauty"
+                {% if product["category"]=="Beauty" %}selected{% endif %}>
+                Beauty
+                </option>
+
+                <option value="Home & Kitchen"
+                {% if product["category"]=="Home & Kitchen" %}selected{% endif %}>
+                Home & Kitchen
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Brand -->
+
+        <div class="form-group">
+
+            <label>Brand</label>
+
+            <input
+                type="text"
+                name="brand"
+                value="{{ product['brand'] }}">
+
+        </div>
+
+        <!-- Price -->
+
+        <div class="form-group">
+
+            <label>Price</label>
+
+            <input
+                type="number"
+                step="0.01"
+                name="price"
+                value="{{ product['price'] }}"
+                required>
+
+        </div>
+
+        <!-- Stock -->
+
+        <div class="form-group">
+
+            <label>Stock</label>
+
+            <input
+                type="number"
+                name="stock"
+                value="{{ product['stock'] }}"
+                required>
+
+        </div>
+
+        <!-- New Image -->
+
+        <div class="form-group">
+
+            <label>Upload New Image</label>
+
+            <input
+                type="file"
+                name="image"
+                accept="image/*">
+
+        </div>
+
+    </div>
+
+    <!-- Description -->
+
+    <div class="form-group">
+
+        <label>Description</label>
+
+        <textarea
+            name="description"
+            rows="6"
+            required>{{ product["description"] }}</textarea>
+
+    </div>
+
+    <!-- Current Image -->
+
+    <div class="image-preview">
+
+        <h3>Current Product Image</h3>
+
+        <img
+            src="{{ url_for('static',
+            filename='uploads/products/' + product['image']) }}"
+            alt="Product Image">
+
+    </div>
+
+    <button
+        type="submit"
+        class="submit-btn">
+
+        <i class="fa-solid fa-pen-to-square"></i>
+
+        Update Product
+
+    </button>
+
+</form>
+
+</div>
+
+{% endblock %}

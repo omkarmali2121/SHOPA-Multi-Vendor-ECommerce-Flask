@@ -1,0 +1,115 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Manage Orders | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin_orders.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="header">
+        <h1>Manage Orders</h1>
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for order in orders %}
+
+                <tr>
+
+                    <td>#{{ order["id"] }}</td>
+
+                    <td>{{ order["fullname"] }}</td>
+
+                    <td>{{ order["product_name"] }}</td>
+
+                    <td>₹{{ order["total_amount"] }}</td>
+
+                    <td>
+
+                        <span class="status {{ order['status']|lower }}">
+
+                            {{ order["status"] }}
+
+                        </span>
+
+                    </td>
+
+                    <td>{{ order["order_date"] }}</td>
+
+                    <td>
+
+                        <select onchange="if(this.value) location=this.value;">
+
+                            <option value="">
+                                Change Status
+                            </option>
+
+                            <option value="/admin/order-status/{{ order['id'] }}/Pending"
+                                {% if order["status"]=="Pending" %}selected{% endif %}>
+                                Pending
+                            </option>
+
+                            <option value="/admin/order-status/{{ order['id'] }}/Confirmed"
+                                {% if order["status"]=="Confirmed" %}selected{% endif %}>
+                                Confirmed
+                            </option>
+
+                            <option value="/admin/order-status/{{ order['id'] }}/Shipped"
+                                {% if order["status"]=="Shipped" %}selected{% endif %}>
+                                Shipped
+                            </option>
+
+                            <option value="/admin/order-status/{{ order['id'] }}/Delivered"
+                                {% if order["status"]=="Delivered" %}selected{% endif %}>
+                                Delivered
+                            </option>
+
+                            <option value="/admin/order-status/{{ order['id'] }}/Cancelled"
+                                {% if order["status"]=="Cancelled" %}selected{% endif %}>
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

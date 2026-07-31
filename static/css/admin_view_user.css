@@ -1,0 +1,145 @@
+/* ===========================
+   View User Page
+=========================== */
+
+.container{
+
+    max-width:800px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+}
+
+.container h2{
+
+    font-size:32px;
+
+    color:#1f2937;
+
+    margin-bottom:25px;
+
+    text-align:center;
+
+    font-weight:700;
+
+}
+
+.card{
+
+    background:#ffffff;
+
+    border-radius:15px;
+
+    padding:35px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+
+    border:1px solid #e5e7eb;
+
+}
+
+.card p{
+
+    font-size:18px;
+
+    color:#374151;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.card p:last-of-type{
+
+    border-bottom:none;
+
+}
+
+.card strong{
+
+    display:inline-block;
+
+    width:150px;
+
+    color:#111827;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:12px 30px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.container{
+
+    padding:15px;
+
+}
+
+.card{
+
+    padding:25px;
+
+}
+
+.card p{
+
+    font-size:16px;
+
+}
+
+.card strong{
+
+    display:block;
+
+    width:100%;
+
+    margin-bottom:6px;
+
+}
+
+.btn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+}

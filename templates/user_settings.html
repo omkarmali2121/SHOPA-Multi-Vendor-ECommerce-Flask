@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+User Settings | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/user_settings.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Back Button -->
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+<div class="settings-container">
+
+    <div class="settings-card">
+
+        <div class="header">
+            <i class="fas fa-user-cog"></i>
+            <h2>Account Settings</h2>
+            <p>Manage your profile information</p>
+        </div>
+
+        <form action="/user/settings" method="POST">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text"
+                       name="fullname"
+                       value="{{ user[1] }}"
+                       required>
+            </div>
+
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email"
+                       name="email"
+                       value="{{ user[2] }}"
+                       required>
+            </div>
+
+
+            <div class="input-group">
+                <label>Mobile Number</label>
+                <input type="text"
+                       name="mobile"
+                       value="{{ user[3] }}"
+                       required>
+            </div>
+
+
+            <div class="input-group">
+                <label>Address</label>
+                <textarea name="address"
+                          rows="4"
+                          placeholder="Enter your address">{{ user[4] }}</textarea>
+            </div>
+
+
+            <hr>
+
+
+            <h3>Change Password</h3>
+
+
+            <div class="input-group">
+                <label>New Password</label>
+                <input type="password"
+                       name="password"
+                       placeholder="Leave blank if no change">
+            </div>
+
+
+            <button type="submit" class="save-button">
+                <i class="fas fa-save"></i>
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

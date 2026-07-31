@@ -1,0 +1,229 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Vendor Dashboard | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/vendor_dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Dashboard Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+
+                📦
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Total Products</h3>
+
+                <h2>{{ total_products }}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+
+                🛒
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Total Orders</h3>
+
+                <h2>{{ total_orders }}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+
+                💰
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Total Revenue</h3>
+
+                <h2>₹{{ total_revenue }}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+
+                ⏳
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>Pending Orders</h3>
+
+                <h2>{{ pending_orders }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="quick-actions">
+
+        <h2>Quick Actions</h2>
+
+        <div class="action-grid">
+
+            <a href="/vendor/add-product" class="action-card">
+
+                <span class="icon-box"><i class="fas fa-plus"></i></span>
+
+                <span>Add Product</span>
+
+            </a>
+
+            <a href="/vendor/my-products" class="action-card">
+
+                <span class="icon-box"><i class="fas fa-box"></i></span>
+
+                <span>My Products</span>
+
+            </a>
+
+            <a href="/vendor/orders" class="action-card">
+
+                <span class="icon-box"><i class="fas fa-shopping-cart"></i></span>
+
+                <span>Orders</span>
+
+            </a>
+
+            <a href="/vendor/earnings" class="action-card">
+
+                <span class="icon-box"><i class="fas fa-wallet"></i></span>
+
+                <span>Earnings</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Orders -->
+
+    <div class="table-container">
+
+        <div class="table-header">
+
+            <h2>Recent Orders</h2>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Order ID</th>
+
+                    <th>Customer</th>
+
+                    <th>Product</th>
+
+                    <th>Quantity</th>
+
+                    <th>Amount</th>
+
+                    <th>Status</th>
+
+                    <th>Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% if recent_orders %}
+
+                    {% for order in recent_orders %}
+
+                    <tr>
+
+                        <td>#{{ order.id }}</td>
+
+                        <td>{{ order.fullname }}</td>
+
+                        <td>{{ order.product_name }}</td>
+
+                        <td>{{ order.quantity }}</td>
+
+                        <td>₹{{ order.total_amount }}</td>
+
+                        <td>
+
+                            <span class="status {{ order.status|lower }}">
+
+                                {{ order.status }}
+
+                            </span>
+
+                        </td>
+
+                        <td>{{ order.order_date }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td colspan="7" style="text-align:center;">
+
+                            No Orders Found
+
+                        </td>
+
+                    </tr>
+
+                {% endif %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

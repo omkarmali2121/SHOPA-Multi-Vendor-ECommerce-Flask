@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Order Manage Products | SHOPA
+{% endblock %}
+
+{% block css %}
+   <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/manage_product.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>SHOPA Admin</h2>
+
+        <ul>
+
+            <li>
+                <a href="/admin">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a class="active" href="/admin/products">
+                    <i class="fas fa-box"></i>
+                    Manage Products
+                </a>
+            </li>
+
+            <li>
+                <a href="/admin/orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    Orders
+                </a>
+            </li>
+
+            <li>
+                <a href="/admin/users">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <div class="header">
+
+            <h1>Manage Products</h1>
+
+            <a href="/admin/add-product" class="add-btn">
+                <i class="fas fa-plus"></i>
+                Add New Product
+            </a>
+
+        </div>
+
+
+        <!-- Search -->
+
+        <div class="search-box">
+
+            <input type="text"
+                   placeholder="Search products...">
+
+        </div>
+
+
+        <!-- Products Table -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>1</td>
+
+                        <td>
+                            <img src="{{ url_for('static',
+                            filename='images/product1.jpg') }}"
+                            class="product-img">
+                        </td>
+
+                        <td>Premium Jacket</td>
+
+                        <td>Clothing</td>
+
+                        <td>₹2499</td>
+
+                        <td>25</td>
+
+                        <td>
+                            <span class="status active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button class="edit-btn">
+                                <i class="fas fa-edit"></i>
+                            </button>
+
+                            <button class="delete-btn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    {% for i in range(5) %}
+
+                    <tr>
+
+                        <td>{{ i+2 }}</td>
+
+                        <td>
+                            <img src="{{ url_for('static',
+                            filename='images/product.jpg') }}"
+                            class="product-img">
+                        </td>
+
+                        <td>Product Name</td>
+
+                        <td>Category</td>
+
+                        <td>₹1999</td>
+
+                        <td>50</td>
+
+                        <td>
+                            <span class="status active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button class="edit-btn">
+                                <i class="fas fa-edit"></i>
+                            </button>
+
+                            <button class="delete-btn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+{% endblock %}
+

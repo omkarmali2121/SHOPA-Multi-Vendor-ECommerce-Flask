@@ -1,0 +1,102 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Vendors | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin_vendors.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="header">
+        <h1>Manage Vendors</h1>
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Store Name</th>
+                    <th>Owner Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for vendor in vendors %}
+
+                <tr>
+
+                    <td>{{ vendor["id"] }}</td>
+                    <td>{{ vendor["store_name"] }}</td>
+                    <td>{{ vendor["owner_name"] }}</td>
+                    <td>{{ vendor["email"] }}</td>
+                    <td>{{ vendor["mobile"] }}</td>
+
+                    <td>
+
+                        <span class="status {{ vendor['status']|lower }}">
+
+                            {{ vendor["status"] }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <a href="/admin/vendor/{{ vendor['id'] }}" class="view-btn">
+                            View
+                        </a>
+
+                        <a href="/admin/vendor-status/{{ vendor['id'] }}/Approved"
+                           class="approve-btn">
+
+                            Approve
+
+                        </a>
+
+                        <a href="/admin/vendor-status/{{ vendor['id'] }}/Rejected"
+                           class="reject-btn">
+
+                            Reject
+
+                        </a>
+
+                        <a href="/admin/delete-vendor/{{ vendor['id'] }}"
+                           class="delete-btn"
+                           onclick="return confirm('Delete this vendor?')">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "admin_base.html"%}
+
+{% block title %}
+Sales Report | SHOPA
+{% endblock %}
+
+{% block css %}
+   <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin_sales_report.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="header">
+        <h1>Sales Report</h1>
+    </div>
+
+    <!-- Summary Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Sales</h3>
+            <h2>₹{{ total_sales }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <h2>{{ total_orders }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Delivered Orders</h3>
+            <h2>{{ delivered_orders }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Pending Orders</h3>
+            <h2>{{ pending_orders }}</h2>
+        </div>
+
+    </div>
+
+    <!-- Report Table -->
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for order in orders %}
+
+                <tr>
+
+                    <td>#{{ order[0] }}</td>
+                    <td>{{ order[1] }}</td>
+                    <td>{{ order[2] }}</td>
+                    <td>₹{{ order[3] }}</td>
+                    <td>{{ order[4] }}</td>
+                    <td>{{ order[5] }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

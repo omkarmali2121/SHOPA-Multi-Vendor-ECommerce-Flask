@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+}
+
+.settings-card{
+
+    width:700px;
+
+    background:var(--surface);
+    color:var(--text);
+    padding:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 20px var(--shadow);
+}
+
+.settings-card h1{
+
+    margin-bottom:25px;
+
+    color:var(--text);
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid var(--border);
+    border-radius:8px;
+    outline:none;
+    background:var(--surface);
+    color:var(--text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:#0d6efd;
+}
+
+.save-btn{
+
+    width:100%;
+
+    background:#198754;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+.save-btn:hover{
+    background:#157347;
+}

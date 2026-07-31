@@ -1,0 +1,125 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:30px 0;
+}
+
+.header{
+    margin-bottom:20px;
+}
+
+.category-form{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+    margin-bottom:20px;
+}
+
+.category-form form{
+    display:flex;
+    gap:10px;
+}
+
+.category-form input{
+
+    flex:1;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+}
+
+.category-form button{
+
+    background:#198754;
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.table-container{
+
+    background:white;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#1e293b;
+    color:white;
+}
+
+th,td{
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
+
+.edit-btn{
+
+    background:#0d6efd;
+    color:white;
+
+    padding:8px 10px;
+
+    border-radius:5px;
+
+    text-decoration:none;
+}
+
+.delete-btn{
+
+    background:#dc3545;
+    color:white;
+
+    padding:8px 10px;
+
+    border-radius:5px;
+
+    text-decoration:none;
+}
+
+@media(max-width:768px){
+
+.category-form form{
+    flex-direction:column;
+}
+
+.table-container{
+    overflow-x:auto;
+}
+
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Shopa</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/register.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="register-box">
+
+        <div class="register-header">
+            <h1>SHOPA</h1>
+            <p>Create Your Account</p>
+        </div>
+
+        <form action="/register" method="POST">
+
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text"
+                       name="fullname"
+                       placeholder="Full Name"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email"
+                       name="email"
+                       placeholder="Email Address"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-phone"></i>
+                <input type="text"
+                       name="mobile"
+                       placeholder="Mobile Number"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password"
+                       name="password"
+                       placeholder="Password"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password"
+                       name="confirm_password"
+                       placeholder="Confirm Password"
+                       required>
+            </div>
+
+            <button type="submit" class="register-btn">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="/login">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

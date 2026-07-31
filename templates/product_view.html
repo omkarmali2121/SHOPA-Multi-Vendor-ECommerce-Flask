@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}
+Product Details | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+    href="{{ url_for('static', filename='css/product_view.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Product Section -->
+
+<section class="product-container">
+
+    <!-- Product Image -->
+
+    <div class="image-box">
+
+       <img src="{{ url_for(
+            'static',
+            filename='uploads/products/' + product['image']
+            ) }}"
+            alt="{{ product['name'] }}">
+
+    </div>
+
+
+    <!-- Product Details -->
+
+    <div class="details-box">
+
+        <h1>{{ product['product_name'] }}</h1>
+
+
+        <!-- Rating -->
+
+        <div class="rating">
+
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+
+            <span>(245 Reviews)</span>
+
+        </div>
+
+
+        <!-- Price -->
+
+        <div class="price">
+
+            {{ product['price'] }}
+
+        </div>
+
+
+        <!-- Description -->
+
+        <p class="description">
+
+            {{ product['description'] }}
+
+        </p>
+
+        <p class="category">
+
+            Category:
+            <b>{{ product['category'] }}</b>
+
+        </p>
+
+        <p class="stock">
+
+            Stock:
+            {{ product['stock'] }}
+
+        </p>
+
+
+        <!-- Quantity -->
+
+        <div class="quantity">
+
+            <label>Quantity</label>
+
+            <input 
+            type="number"
+            value="1"
+            min="1">
+
+        </div>
+
+
+        <!-- Action Buttons -->
+
+        <div class="actions">
+
+
+            <!-- Wishlist -->
+
+            <button class="wishlist-btn">
+
+                <i class="fa-solid fa-heart"></i>
+
+            </button>
+
+
+            <!-- Add Cart -->
+
+            <a href="/cart/add/{{ product['id'] }}" class="cart-btn">
+            
+                <i class="fas fa-cart-shopping"></i>
+            
+                Add To Cart
+            
+            </a>
+
+
+            <!-- Buy Now -->
+
+            <a href="{{ url_for('buy_now', product_id=product['id']) }}" class="buy-btn">
+                Buy Now
+            </a>
+
+
+        </div>
+
+
+        <!-- Features -->
+
+        <div class="features">
+
+            <div>
+                <i class="fas fa-truck"></i>
+                Free Delivery
+            </div>
+
+
+            <div>
+                <i class="fas fa-rotate-left"></i>
+                7 Days Return
+            </div>
+
+
+            <div>
+                <i class="fas fa-shield"></i>
+                Secure Payment
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+{% endblock %}
+

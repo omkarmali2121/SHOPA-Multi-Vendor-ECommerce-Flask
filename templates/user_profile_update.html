@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile Update | SHOPA
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='css/user_profile_update.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Back button -->
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+<!-- Profile Update Section -->
+<div class="profile-update">
+
+    <div class="page-header">
+        <h1>Update Profile</h1>
+        <p>Manage your personal information</p>
+    </div>
+
+
+    <form action="/update-profile"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <!-- Profile Image -->
+
+        <div class="profile-image">
+
+            <img src="{{ url_for('static',
+            filename='images/user.png') }}"
+            alt="User Image">
+
+            <label class="upload-btn">
+                <i class="fas fa-camera"></i>
+                Change Photo
+
+                <input type="file"
+                       name="profile_image"
+                       hidden>
+            </label>
+
+        </div>
+
+
+        <!-- Form Fields -->
+
+        <div class="form-grid">
+
+
+            <div class="input-box">
+
+                <label>Full Name</label>
+
+                <input type="text"
+                       name="name"
+                       value="Omkar Mali"
+                       required>
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>Email Address</label>
+
+                <input type="email"
+                       value="omkar@example.com"
+                       readonly>
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>Mobile Number</label>
+
+                <input type="tel"
+                       name="mobile"
+                       placeholder="Enter mobile number">
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>City</label>
+
+                <input type="text"
+                       name="city">
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>State</label>
+
+                <input type="text"
+                       name="state">
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>Pincode</label>
+
+                <input type="text"
+                       name="pincode">
+
+            </div>
+
+
+            <div class="input-box full-width">
+
+                <label>Address</label>
+
+                <textarea name="address"
+                          rows="4">
+                </textarea>
+
+            </div>
+
+
+        </div>
+
+
+        <button class="save-btn">
+
+            <i class="fas fa-save"></i>
+
+            Save Changes
+
+        </button>
+
+
+    </form>
+
+
+</div>
+
+{% endblock %}

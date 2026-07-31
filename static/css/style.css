@@ -1,0 +1,103 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    flex-direction:column;
+}
+main {
+  flex: 1; 
+}
+
+footer {
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+  text-align: center;
+  padding: 10px;
+}
+/* Hero */
+
+.hero{
+    background:linear-gradient(
+        rgba(0,0,0,.6),
+        rgba(0,0,0,.6)
+    ),
+    url('../images/banner.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    height:80vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+}
+
+.hero h1{
+    font-size:60px;
+    font-weight:bold;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+/* Product Card */
+
+.product-card{
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.product-card img{
+    height:300px;
+    object-fit:cover;
+}
+
+/* Features */
+
+.features{
+    background:var(--navbar-bg);
+    color:var(--navbar-text);
+    padding:80px 0;
+}
+
+.features i{
+    margin-bottom:20px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:35px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.product-card img{
+    height:220px;
+}
+
+}
+

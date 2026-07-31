@@ -1,0 +1,83 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* Hero */
+
+.about-hero{
+    background:#212529;
+    color:white;
+    padding:100px 0;
+}
+
+.about-hero h1{
+    font-size:55px;
+    font-weight:bold;
+}
+
+/* About Section */
+
+.about-section img{
+    max-height:400px;
+    object-fit:cover;
+}
+
+/* Features */
+
+.features-section{
+    background:#f8f9fa;
+    padding:60px 0;
+}
+
+.feature-icon{
+    font-size:50px;
+    color:#198754;
+    margin-bottom:20px;
+}
+
+/* Team */
+
+.team-card{
+    text-align:center;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.team-card img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+/* Footer */
+
+footer{
+    background:#212529;
+    color:white;
+    padding:20px;
+    margin-top:50px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.about-hero h1{
+    font-size:35px;
+}
+
+.team-card{
+    margin-bottom:20px;
+}
+
+}

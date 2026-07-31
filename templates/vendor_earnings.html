@@ -1,0 +1,228 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Vendor Earnings | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/vendor_earnings.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+
+    <div>
+
+        <h1>Vendor Earnings</h1>
+
+        <p>
+            Monitor your revenue, orders and earnings.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Statistics Cards -->
+
+<div class="cards">
+
+    <div class="card revenue">
+
+        <div class="icon">
+
+            <i class="fa-solid fa-wallet"></i>
+
+        </div>
+
+        <div>
+
+            <h2 class="amount">₹ {{ "{:,.2f}".format(total_revenue) }}</h2>
+
+            <span>Total Revenue</span>
+
+        </div>
+
+    </div>
+
+    <div class="card orders">
+
+        <div class="icon">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+        </div>
+
+        <div>
+
+            <h2 class="order">{{ total_orders }}</h2>
+
+            <span>Total Orders</span>
+
+        </div>
+
+    </div>
+
+    <div class="card delivered">
+
+        <div class="icon">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+        </div>
+
+        <div>
+
+            <h2 class="delivered">{{ delivered_orders }}</h2>
+
+            <span>Delivered Orders</span>
+
+        </div>
+
+    </div>
+
+    <div class="card pending">
+
+        <div class="icon">
+
+            <i class="fa-solid fa-clock"></i>
+
+        </div>
+
+        <div>
+
+            <h2 class="pending">{{ pending_orders }}</h2>
+
+            <span>Pending Orders</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Recent Earnings -->
+
+<div class="table-card">
+
+    <div class="table-header">
+
+        <h2>Recent Earnings</h2>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Order ID</th>
+
+                    <th>Product</th>
+
+                    <th>Amount</th>
+
+                    <th>Date</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for order in earnings %}
+
+                <tr>
+
+                    <td>
+
+                        #{{ order["id"] }}
+
+                    </td>
+
+                    <td>
+
+                        {{ order["product_name"] }}
+
+                    </td>
+
+                    <td>
+
+                        ₹ {{ "{:,.2f}".format(order["total_amount"]) }}
+
+                    </td>
+
+                    <td>
+
+                        {{ order["order_date"] }}
+
+                    </td>
+
+                    <td>
+
+                        {% if order["status"]=="Delivered" %}
+
+                            <span class="badge delivered">
+
+                                Delivered
+
+                            </span>
+
+                        {% elif order["status"]=="Pending" %}
+
+                            <span class="badge pending">
+
+                                Pending
+
+                            </span>
+
+                        {% elif order["status"]=="Shipped" %}
+
+                            <span class="badge shipped">
+
+                                Shipped
+
+                            </span>
+
+                        {% elif order["status"]=="Packed" %}
+
+                            <span class="badge packed">
+
+                                Packed
+
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge">
+
+                                {{ order["status"] }}
+
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,218 @@
+/* Back Button */
+.back-btn {
+  background: #06386e;     
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #000101;     
+}
+
+.order-box{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+background:white;
+
+padding:30px;
+
+border-radius:12px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.product-section img{
+
+width:100%;
+
+height:350px;
+
+object-fit:cover;
+
+border-radius:10px;
+
+margin-bottom:20px;
+
+}
+
+.product-section p{
+
+margin:8px 0;
+
+}
+
+.customer-section{
+
+font-size:17px;
+
+}
+
+.customer-section p{
+
+margin:15px 0;
+
+}
+
+.status{
+
+background:#ffc107;
+
+padding:8px 15px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+}
+
+.tracking-card{
+
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    margin-top:40px;
+    margin-bottom: 40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.tracking-card h2{
+
+    margin-bottom:45px;
+    font-weight:700;
+
+}
+
+.tracking{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:relative;
+
+}
+
+.step{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    width:150px;
+    z-index:2;
+
+}
+
+.circle{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    background:#ddd;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    transition:.4s;
+
+}
+
+.line{
+
+    flex:1;
+    height:5px;
+    background:#ddd;
+    margin:0 -10px;
+    margin-top:-35px;
+    transition:.4s;
+
+}
+
+.step.active .circle{
+
+    background:#28a745;
+
+}
+
+.line.active{
+
+    background:#28a745;
+
+}
+
+.step p{
+
+    margin-top:15px;
+    font-weight:600;
+    font-size:18px;
+
+}
+
+.step small{
+
+    color:#888;
+    margin-top:6px;
+
+}
+
+@media(max-width:768px){
+
+.tracking{
+
+    flex-direction:column;
+    align-items:flex-start;
+
+}
+
+.line{
+
+    width:5px;
+    height:60px;
+    margin:0 0 0 28px;
+
+}
+
+.step{
+
+    flex-direction:row;
+    gap:20px;
+    width:100%;
+    margin-bottom:20px;
+
+}
+
+.step p{
+
+    margin:0;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.order-box{
+
+grid-template-columns:1fr;
+
+}
+
+}

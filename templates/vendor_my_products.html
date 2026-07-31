@@ -1,0 +1,112 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+My Products | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static',
+filename='css/vendor_my_products.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>My Products</h1>
+
+    <a href="/vendor/add-product" class="add-btn">
+
+        + Add Product
+
+    </a>
+
+</div>
+
+<div class="table-container">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Image</th>
+
+                <th>Product</th>
+
+                <th>Category</th>
+
+                <th>Price</th>
+
+                <th>Stock</th>
+
+                <th>Status</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for product in products %}
+
+            <tr>
+
+                <td>
+
+                    <img src="{{ url_for('static',
+                                filename='uploads/products/' + product['image']) }}" class="product-img">
+
+                </td>
+
+                <td>{{ product["product_name"] }}</td>
+
+                <td>{{ product["category"] }}</td>
+
+                <td>₹ {{ product["price"] }}</td>
+
+                <td>{{ product["stock"] }}</td>
+
+                <td>
+
+                    <span class="status {{ product['status']|lower }}">
+
+                        {{ product["status"] }}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <a href="/vendor/edit-product/{{ product['id'] }}" class="edit-btn">
+
+                        Edit
+
+                    </a>
+
+                    <a href="/vendor/delete-product/{{ product['id'] }}" class="delete-btn"
+                        onclick="return confirm('Are you sure you want to delete this product?');">
+                    
+                        <i class="fa-solid fa-trash"></i>
+                    
+                        Delete
+                    
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

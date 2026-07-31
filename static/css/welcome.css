@@ -1,0 +1,245 @@
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    background:linear-gradient(135deg,#07152d,#0d47a1,#1e88e5);
+
+    background-position: fixed;
+
+    position:relative;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+}
+
+.welcome-card{
+
+    width:950px;
+
+    max-width:100%;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    text-align:center;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+    z-index:5;
+
+}
+
+.logo{
+
+    width:120px;
+
+    margin-bottom:20px;
+
+    transition:.4s;
+
+}
+
+.logo:hover{
+
+    transform:rotate(-5deg) scale(1.08);
+
+}
+
+h1{
+
+    color:#fff;
+
+    font-size:58px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#dbeafe;
+
+    font-size:20px;
+
+    margin-bottom:40px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.card{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.card i{
+
+    font-size:48px;
+
+    margin-bottom:18px;
+
+    color:#4fc3f7;
+
+}
+
+.card h2{
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    color:#dbeafe;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+.card span{
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    background:#ff6b00;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-weight:bold;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.30);
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.admin span{
+
+    background:#2563eb;
+
+}
+
+.vendor span{
+
+    background:#16a34a;
+
+}
+
+.vendor i{
+
+    color:#22c55e;
+
+}
+
+.footer{
+
+    margin-top:40px;
+
+    color:#dbeafe;
+
+    font-size:15px;
+
+}
+
+@media(max-width:992px){
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.welcome-card{
+
+padding:30px;
+
+}
+
+h1{
+
+font-size:42px;
+
+}
+
+.subtitle{
+
+font-size:17px;
+
+}
+
+}

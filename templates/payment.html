@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block title %}
+Payment | SHOPA
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/payment.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            SHOPA
+        </a>
+
+        <a href="/cart" class="btn btn-outline-light">
+            Back To Cart
+        </a>
+    </div>
+</nav>
+
+
+<section class="payment-section">
+
+<div class="container">
+
+<div class="row">
+
+
+<!-- Customer Details -->
+
+<div class="col-md-7">
+
+<div class="payment-card">
+
+<h3>Billing Details</h3>
+
+
+<form>
+
+<input type="text"
+       class="form-control mb-3"
+       placeholder="Full Name">
+
+
+<input type="email"
+       class="form-control mb-3"
+       placeholder="Email Address">
+
+
+<input type="text"
+       class="form-control mb-3"
+       placeholder="Mobile Number">
+
+
+<textarea class="form-control mb-3"
+          rows="4"
+          placeholder="Shipping Address"></textarea>
+
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<!-- Order Summary -->
+
+<div class="col-md-5">
+
+<div class="payment-card">
+
+
+<h3>Order Summary</h3>
+
+<hr>
+
+
+<div class="summary">
+<p>Men Jacket</p>
+<p>₹2499</p>
+</div>
+
+
+<div class="summary">
+<p>Running Shoes</p>
+<p>₹3499</p>
+</div>
+
+
+<hr>
+
+
+<div class="summary total">
+<b>Total</b>
+<b>₹5998</b>
+</div>
+
+
+<button id="rzp-button"
+        class="btn btn-success w-100 mt-3">
+
+Pay With Razorpay
+
+</button>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Razorpay Checkout -->
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<script>
+
+var options = {
+
+    key: "YOUR_RAZORPAY_KEY_ID",
+
+    amount: 599800,
+
+    currency: "INR",
+
+    name: "SHOPA",
+
+    description: "Order Payment",
+
+    image: "/static/images/logo.png",
+
+    handler: function(response){
+
+        alert(
+          "Payment Successful\nPayment ID: "
+          + response.razorpay_payment_id
+        );
+
+        window.location.href = "/payment-success";
+
+    },
+
+
+    prefill: {
+
+        name: "Customer Name",
+
+        email: "customer@example.com",
+
+        contact: "9999999999"
+
+    },
+
+
+    theme: {
+
+        color: "#198754"
+
+    }
+
+};
+
+
+var rzp = new Razorpay(options);
+
+
+document.getElementById("rzp-button")
+.onclick = function(e){
+
+    rzp.open();
+
+    e.preventDefault();
+
+}
+
+</script>
+
+{% endblock %}

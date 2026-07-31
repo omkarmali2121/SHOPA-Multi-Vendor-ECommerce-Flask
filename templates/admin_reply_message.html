@@ -1,0 +1,49 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Reply Message | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/admin_reply_message.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+<h2>Reply Message</h2>
+
+<form method="POST">
+
+<label>Email</label>
+
+<input type="email"
+       value="{{ message['email'] }}"
+       readonly>
+
+<label>Subject</label>
+
+<input type="text"
+       name="subject"
+       required>
+
+<label>Reply</label>
+
+<textarea name="reply"
+          rows="8"
+          required></textarea>
+
+<button type="submit">
+
+Send Reply
+
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

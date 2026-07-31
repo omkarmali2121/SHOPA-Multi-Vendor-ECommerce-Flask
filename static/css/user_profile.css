@@ -1,0 +1,199 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+
+/* Dashboard Layout */
+
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+
+/* Sidebar */
+
+
+.sidebar{
+    width:260px;
+    background:var(--navbar-bg);
+    color:var(--navbar-text);
+    padding:20px;
+}
+
+
+.profile{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+
+.profile img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    margin-bottom:10px;
+}
+
+
+.sidebar ul{
+    list-style:none;
+}
+
+
+.sidebar ul li{
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:8px;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.sidebar a{
+    
+    text-decoration:none;
+    
+}
+
+.sidebar i {
+  margin-right: 10px; 
+}
+
+.sidebar ul li:hover,
+.active{
+    background:#000000;
+}
+
+
+/* Content */
+
+
+.content{
+    flex:1;
+    padding:30px;
+    text-decoration: none;
+}
+
+
+.content h2{
+    margin-bottom:25px;
+}
+
+
+/* Dashboard Cards */
+
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    text-decoration: none;
+}
+
+.card-box{
+    background:var(--surface);
+    color:var(--text);
+    padding:25px;
+    border-radius:12px;
+    text-decoration: none;
+    text-align:center;
+    box-shadow:0 5px 15px var(--shadow);
+}
+
+.card-box:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+.card-link{
+    color: var(--text);
+    text-decoration: none;
+}
+
+.card-box i{
+    font-size:35px;
+    color:#0d6efd;
+    margin-bottom:15px;
+    text-decoration: none;
+}
+
+
+/* Orders */
+
+
+.orders{
+    background:var(--surface);
+    margin-top:30px;
+    padding:25px;
+    border-radius:12px;
+    overflow-x:auto;
+}
+
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+
+th, td{
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+
+.delivered{
+    color:green;
+    font-weight:bold;
+}
+
+
+.pending{
+    color:orange;
+    font-weight:bold;
+}
+
+
+/* Responsive */
+
+
+@media(max-width:900px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+}

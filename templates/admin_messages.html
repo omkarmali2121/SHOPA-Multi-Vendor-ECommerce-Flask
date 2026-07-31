@@ -1,0 +1,66 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Message | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/admin_messages.css') }}">
+{% endblock %}
+
+{% block content %}     
+    <div class="message-container">
+        <h1>Admin Messages</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                   </tr>
+                </thead>
+                <tbody>
+
+                    {% for msg in messages %}
+                    <tr>
+                        <td>{{ msg[0] }}</td>
+                        <td>{{ msg[1] }}</td>
+                        <td>{{ msg[2] }}</td>
+                        <td>{{ msg[3] }}</td>
+                        <td>{{ msg[4] }}</td>
+                        <td>{{ msg[5] }}</td>
+                        <td>
+                        
+                            <a href="/admin/message/{{ msg[0] }}" class="view-btn">
+                        
+                                <i class="fas fa-eye"></i>
+                        
+                            </a>
+                        
+                            <a href="/admin/reply-message/{{ msg[0] }}" class="reply-btn">
+                        
+                                <i class="fas fa-reply"></i>
+                        
+                            </a>
+                        
+                            <a href="/admin/delete-message/{{ msg[0] }}" class="delete-btn" onclick="return confirm('Delete this message?')">
+                        
+                                <i class="fas fa-trash"></i>
+                        
+                            </a>
+                        
+                        </td>
+                    </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}    

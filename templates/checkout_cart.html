@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block title %}
+Checkout | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/checkout_cart.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="checkout-page">
+
+    <div class="container">
+
+        <h1 class="page-title">
+
+            Checkout
+
+        </h1>
+
+        <div class="checkout-wrapper">
+
+            <!-- ================= Left ================= -->
+
+            <div class="checkout-form">
+
+                <h2>
+
+                    <i class="fas fa-user"></i>
+
+                    Billing Details
+
+                </h2>
+
+                <form method="POST">
+
+                    <input
+                    type="text"
+                    name="fullname"
+                    placeholder="Full Name"
+                    required>
+
+                    <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required>
+
+                    <input
+                    type="text"
+                    name="mobile"
+                    placeholder="Mobile Number"
+                    required>
+
+                    <textarea
+                    name="address"
+                    rows="5"
+                    placeholder="Complete Shipping Address"
+                    required></textarea>
+
+
+                    <h3>
+
+                        Payment Method
+
+                    </h3>
+
+                    <div class="payment-box">
+
+                        <label>
+
+                            <input
+                            type="radio"
+                            name="payment"
+                            value="Cash on Delivery"
+                            checked>
+
+                            Cash On Delivery
+
+                        </label>
+
+                        <label>
+
+                            <input
+                            type="radio"
+                            name="payment"
+                            value="Online Payment">
+
+                            Online Payment
+
+                        </label>
+
+                    </div>
+
+                    <button
+                    type="submit"
+                    class="place-btn">
+
+                        Place Order
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- ================= Right ================= -->
+
+            <div class="order-summary">
+
+                <h2>
+
+                    <i class="fas fa-shopping-cart"></i>
+
+                    Order Summary
+
+                </h2>
+
+                {% for item in cart_items %}
+
+                <div class="summary-card">
+
+                    <img
+                    src="{{ url_for(
+                    'static',
+                    filename='uploads/products/' + item['image']) }}">
+
+                    <div class="summary-details">
+
+                        <h4>
+
+                            {{ item["name"] }}
+
+                        </h4>
+
+                        <p>
+
+                            ₹{{ item["price"] }}
+
+                        </p>
+
+                        <p>
+
+                            Quantity :
+
+                            {{ item["quantity"] }}
+
+                        </p>
+
+                    </div>
+
+                    <div class="summary-total">
+
+                        ₹{{ item["price"] * item["quantity"] }}
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+                <hr>
+
+                <div class="grand-total">
+
+                    <h3>
+
+                        Grand Total
+
+                    </h3>
+
+                    <h3>
+
+                        ₹{{ total }}
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Vendor Profile | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/vendor_profile.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+
+    <div class="profile-card">
+
+        <div class="profile-left">
+
+            {% if vendor["logo"] %}
+
+                <img src="{{ url_for('static', filename='uploads/vendor/' + vendor['logo']) }}"
+                     class="profile-image">
+
+            {% else %}
+
+                <img src="{{ url_for('static', filename='images/vendor.png') }}"
+                     class="profile-image">
+
+            {% endif %}
+
+            <h2>{{ vendor["store_name"] }}</h2>
+
+            <p>SHOPA Verified Vendor</p>
+
+            <a href="/vendor/profile/edit"
+               class="edit-btn">
+
+                <i class="fa-solid fa-pen"></i>
+
+                Edit Profile
+
+            </a>
+
+        </div>
+
+
+        <div class="profile-right">
+
+            <h2>Vendor Information</h2>
+
+            <div class="info-grid">
+
+                <div class="info-box">
+
+                    <label>Store Name</label>
+
+                    <span>{{ vendor["store_name"] }}</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <label>Owner Name</label>
+
+                    <span>{{ vendor["owner_name"] }}</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <label>Email</label>
+
+                    <span>{{ vendor["email"] }}</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <label>Mobile</label>
+
+                    <span>{{ vendor["mobile"] }}</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <label>GST Number</label>
+
+                    <span>{{ vendor["gst_number"] }}</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <label>Status</label>
+
+                    <span class="status">
+
+                        {{ vendor["status"] }}
+
+                    </span>
+
+                </div>
+
+                <div class="info-box full">
+
+                    <label>Address</label>
+
+                    <span>{{ vendor["address"] }}</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

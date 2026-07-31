@@ -1,0 +1,360 @@
+/* ==========================================
+   SHOPA Vendor Orders
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+/* ===============================
+   Page Header
+================================ */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.page-header h1{
+
+    font-size:32px;
+
+    color:#1e293b;
+
+    font-weight:700;
+
+}
+
+.page-header p{
+
+    color:#64748b;
+
+    margin-top:6px;
+
+}
+
+/* ===============================
+   Table Container
+================================ */
+
+.table-container{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:1200px;
+
+}
+
+/* ===============================
+   Table Head
+================================ */
+
+thead{
+
+    background:#2563eb;
+
+}
+
+thead th{
+
+    color:#fff;
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+/* ===============================
+   Table Body
+================================ */
+
+tbody td{
+
+    padding:16px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    color:#334155;
+
+}
+
+tbody tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+tbody tr:hover{
+
+    background:#eef4ff;
+
+}
+
+/* ===============================
+   Product Image
+================================ */
+
+.product-img{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+    border:1px solid #ddd;
+
+}
+
+/* ===============================
+   Status Badge
+================================ */
+
+.status{
+
+    padding:7px 15px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* Pending */
+
+.status.pending{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+}
+
+/* Confirmed */
+
+.status.confirmed{
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+}
+
+/* Packed */
+
+.status.packed{
+
+    background:#ede9fe;
+
+    color:#6d28d9;
+
+}
+
+/* Shipped */
+
+.status.shipped{
+
+    background:#ffe5d0;
+
+    color:#ea580c;
+
+}
+
+/* Delivered */
+
+.status.delivered{
+
+    background:#d1fae5;
+
+    color:#047857;
+
+}
+
+/* Cancelled */
+
+.status.cancelled{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+/* ===============================
+   Action Buttons
+================================ */
+
+.view-btn,
+.edit-btn,
+.invoice-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:10px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    margin-right:6px;
+
+    transition:.3s;
+
+}
+
+.view-btn{
+
+    background:#2563eb;
+
+}
+
+.view-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+.edit-btn{
+
+    background:#10b981;
+
+}
+
+.edit-btn:hover{
+
+    background:#059669;
+
+    transform:translateY(-2px);
+
+}
+
+.invoice-btn{
+
+    background:#ef4444;
+
+}
+
+.invoice-btn:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===============================
+   Empty Orders
+================================ */
+
+.no-orders{
+
+    text-align:center;
+
+    padding:70px;
+
+    color:#64748b;
+
+    font-size:18px;
+
+}
+
+/* ===============================
+   Responsive
+================================ */
+
+@media(max-width:992px){
+
+.page-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.page-header h1{
+
+font-size:28px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-header h1{
+
+font-size:24px;
+
+}
+
+.product-img{
+
+width:55px;
+
+height:55px;
+
+}
+
+.view-btn,
+.edit-btn,
+.invoice-btn{
+
+width:34px;
+
+height:34px;
+
+margin-bottom:6px;
+
+}
+
+}

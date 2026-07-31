@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile | SHOPA
+{% endblock %}
+
+{% block css %}
+   <link rel="stylesheet" 
+          href="{{ url_for('static', filename='css/user_profile.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<!-- Dashboard -->
+
+<section class="dashboard">
+
+    <div class="sidebar">
+
+        <div class="profile">
+
+            <img src="{{ url_for('static', filename='images/user.png') }}"
+                 alt="User">
+
+            <h3>{{ user["fullname"] }}</h3>
+            <p>Customer</p>
+
+        </div>
+
+
+        <ul>
+
+            <li class="active">
+                <i class="fas fa-home"></i>
+               <a href="/profile"> Home</a>
+            </li>
+
+            <li>
+                <i class="fas fa-shopping-bag"></i>
+                <a href="/my-orders"> My Orders</a>
+            </li>
+
+            <li>
+                <i class="fas fa-heart"></i>
+                <a href="/wishlist">Wishlist</a>
+            </li>
+
+            <li>
+                <i class="fas fa-user"></i>
+                <a href="/profile/update">Profile Update</a>
+            </li>
+
+            <li>
+                <i class="fas fa-location-dot"></i>
+                <a href="/delivery-address">Addresses</a>
+            </li>
+
+            <li>
+                <i class="fas fa-gear"></i>
+                <a href="/user/settings">Settings</a>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a href="/sign-out">Sign-Out</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Main Content -->
+
+    <div class="content">
+
+        <h2>Welcome Back,
+            {{ user["fullname"] }} 👋
+        </h2>
+
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+           <a href="/my-orders" class="card-link">
+                <div class="card-box">
+                    <i class="fas fa-box"></i>
+                    <h3>{{ total_orders }}</h3>
+                    <p>Total Orders</p>
+                </div>
+            </a>
+
+            <a href="/my-orders" class="card-link">
+                <div class="card-box">
+                    <i class="fas fa-clock"></i>
+                    <h3>{{ pending_orders }}</h3>
+                    <p>Pending Orders</p>
+                </div>
+            </a>
+
+
+            <a href="/wishlist" class="card-link">
+                <div class="card-box">
+                    <i class="fas fa-heart"></i>
+                    <h3>{{ wishlist_items }}</h3>
+                    <p>Wishlist Items</p>
+                </div>
+            </a>
+
+
+            <a href="/my-orders" class="card-link">
+                <div class="card-box">
+                    <i class="fas fa-wallet"></i>
+                    <h3>₹{{ "{:,.2f}".format(total_spending) }}</h3>
+                    <p>Total Spending</p>
+                </div>
+            </a>
+
+
+        </div>
+
+
+        <!-- Recent Orders -->
+
+
+        <div class="orders">
+
+            <h3>Recent Orders</h3>
+
+
+            <table>
+
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                </tr>
+
+
+                {% for order in recent_orders %}
+                
+                <tr>
+                
+                    <td>#{{ order["id"] }}</td>
+                
+                    <td>{{ order["product_name"] }}</td>
+                
+                    <td class="{{ order['status']|lower }}">
+                        {{ order["status"] }}
+                    </td>
+                
+                    <td>₹{{ order["total_amount"] }}</td>
+                
+                </tr>
+                
+                {% endfor %}
+
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Add Product | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/vendor_add_product.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>Add New Product</h1>
+
+    <p>
+        Fill the details below to submit your product for approval.
+    </p>
+
+</div>
+
+<div class="form-container">
+
+<form action="/vendor/add-product"
+      method="POST"
+      enctype="multipart/form-data">
+
+    <div class="form-grid">
+
+        <!-- Product Name -->
+
+        <div class="form-group">
+
+            <label>Product Name</label>
+
+            <input type="text"
+                   name="product_name"
+                   placeholder="Enter Product Name"
+                   required>
+
+        </div>
+
+        <!-- Category -->
+
+        <div class="form-group">
+
+            <label>Category</label>
+
+            <select name="category" required>
+
+                <option value="">Select Category</option>
+
+                <option>Men</option>
+
+                <option>Women</option>
+
+                <option>Kids</option>
+
+                <option>Electronics</option>
+
+                <option>Footwear</option>
+
+                <option>Beauty</option>
+
+                <option>Home & Kitchen</option>
+
+            </select>
+
+        </div>
+
+        <!-- Brand -->
+
+        <div class="form-group">
+
+            <label>Brand</label>
+
+            <input type="text"
+                   name="brand"
+                   placeholder="Brand Name">
+
+        </div>
+
+        <!-- Price -->
+
+        <div class="form-group">
+
+            <label>Price (₹)</label>
+
+            <input type="number"
+                   name="price"
+                   step="0.01"
+                   required>
+
+        </div>
+
+        <!-- Stock -->
+
+        <div class="form-group">
+
+            <label>Stock</label>
+
+            <input type="number"
+                   name="stock"
+                   required>
+
+        </div>
+
+        <!-- Product Image -->
+
+        <div class="form-group">
+
+            <label>Product Image</label>
+
+            <input type="file"
+                   name="image"
+                   accept="image/*"
+                   required>
+
+        </div>
+
+    </div>
+
+    <!-- Description -->
+
+    <div class="form-group">
+
+        <label>Description</label>
+
+        <textarea name="description"
+                  rows="6"
+                  placeholder="Write product description..."
+                  required></textarea>
+
+    </div>
+
+    <button type="submit"
+            class="submit-btn">
+
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+        Submit Product
+
+    </button>
+
+</form>
+
+</div>
+
+{% endblock %}

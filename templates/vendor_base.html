@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        {% block title %}
+
+        Vendor Panel | SHOPA
+
+        {% endblock %}
+
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/vendor_base.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    {% block css %}
+
+    {% endblock %}
+
+</head>
+
+<body class="theme-light">
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <img src="{{ url_for('static',
+        filename='images/SHOPA.png') }}">
+
+        <h2>SHOPA</h2>
+
+        <span>Vendor Panel</span>
+
+    </div>
+
+    <ul>
+
+        <li class="{% if active_page=='dashboard' %}active{% endif %}">
+
+            <a href="/vendor/dashboard">
+
+                <i class="fas fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+        </li>
+
+        <li class="{% if active_page=='products' %}active{% endif %}">
+
+            <a href="/vendor/my-products">
+
+                <i class="fas fa-box"></i>
+
+                My Products
+
+            </a>
+
+        </li>
+
+        <li class="{% if active_page=='add_product' %}active{% endif %}">
+
+            <a href="/vendor/add-product">
+
+                <i class="fas fa-plus-circle"></i>
+
+                Add Product
+
+            </a>
+
+        </li>
+
+        <li class="{% if active_page=='orders' %}active{% endif %}">
+
+            <a href="/vendor/orders">
+
+                <i class="fas fa-shopping-cart"></i>
+
+                Orders
+
+            </a>
+
+        </li>
+
+        <li class="{% if active_page=='earnings' %}active{% endif %}">
+
+            <a href="/vendor/earnings">
+
+                <i class="fas fa-wallet"></i>
+
+                Earnings
+
+            </a>
+
+        </li>
+
+        <li class="{% if active_page=='reports' %}active{% endif %}">
+
+            <a href="/vendor/reports">
+
+                <i class="fas fa-chart-bar"></i>
+
+                Reports
+
+            </a>
+
+        </li>
+
+        <li class="{% if active_page=='profile' %}active{% endif %}">
+
+            <a href="/vendor/profile">
+
+                <i class="fas fa-user"></i>
+
+                Profile
+
+            </a>
+
+        </li>
+
+        <li class="{% if active_page=='settings' %}active{% endif %}">
+
+            <a href="/vendor/settings">
+
+                <i class="fas fa-cog"></i>
+
+                Settings
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="/vendor/logout">
+
+                <i class="fas fa-sign-out-alt"></i>
+
+                Logout
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</div>
+
+<div class="main-content">
+
+    <div class="topbar">
+
+        <div>
+
+            <h2>
+
+                {% block page_title %}
+
+                Vendor Dashboard
+
+                {% endblock %}
+
+            </h2>
+
+        </div>
+
+        <div class="vendor-info">
+
+            <img src="{{ url_for('static',
+            filename='images/user.png') }}">
+
+            <span>
+
+                {{ session.get("vendor_name","Vendor") }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="flash-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category.startswith('vendor_') %}
+                        {% set alert_type = category.split('_')[-1] %}
+                        <div class="alert alert-{{ alert_type }}">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dark-theme-toggle');
+        const savedTheme = localStorage.getItem('vendor-theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-theme');
+            if (toggle) {
+                toggle.checked = true;
+            }
+        }
+
+        if (toggle) {
+            toggle.addEventListener('change', function () {
+                const isDark = this.checked;
+                document.body.classList.toggle('dark-theme', isDark);
+                localStorage.setItem('vendor-theme', isDark ? 'dark' : 'light');
+            });
+        }
+    });
+</script>
+
+</body>
+
+</html>

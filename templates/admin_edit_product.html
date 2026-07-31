@@ -1,0 +1,113 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Edit Product | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin_edit_product.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="main-container">
+
+    <div class="page-header">
+
+        <h1>Edit Product</h1>
+
+        <a href="/admin/products" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+
+    </div>
+
+    <div class="form-card">
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <div class="row">
+
+                <!-- Left -->
+
+                <div class="left">
+
+                    <label>Product Name</label>
+
+                    <input type="text"
+                           name="product_name"
+                           value="{{ product['product_name'] }}"
+                           required>
+
+
+                    <label>Category</label>
+
+                    <input type="text"
+                           name="category"
+                           value="{{ product['category'] }}"
+                           required>
+
+
+                    <label>Price</label>
+
+                    <input type="number"
+                           name="price"
+                           value="{{ product['price'] }}"
+                           required>
+
+
+                    <label>Stock</label>
+
+                    <input type="number"
+                           name="stock"
+                           value="{{ product['stock'] }}"
+                           required>
+
+                </div>
+
+                <!-- Right -->
+
+                <div class="right">
+
+                    <label>Description</label>
+
+                    <textarea
+                        name="description"
+                        rows="8"
+                        required>{{ product['description'] }}</textarea>
+
+                    <label>Current Image</label>
+
+                    <img src="{{ url_for(
+                        'static',
+                        filename='uploads/products/' + product['image']
+                    ) }}"
+                    class="preview">
+
+                    <label>Change Image</label>
+
+                    <input type="file"
+                           name="image">
+
+                </div>
+
+            </div>
+
+            <button class="save-btn">
+
+                <i class="fas fa-save"></i>
+
+                Update Product
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

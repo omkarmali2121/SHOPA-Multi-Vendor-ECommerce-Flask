@@ -1,0 +1,197 @@
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/vendor_register.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="register-container">
+
+    <div class="register-card">
+
+        <div class="register-header">
+
+            <img src="{{ url_for('static',
+            filename='images/SHOPA.png') }}"
+            class="logo">
+
+            <h1>Become a SHOPA Vendor</h1>
+
+            <p>
+                Sell your products to thousands of customers across India.
+            </p>
+
+        </div>
+
+        <form action="/vendor/register"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <!-- Store Information -->
+
+            <div class="section">
+
+                <h2>Store Information</h2>
+
+                <div class="upload-box">
+
+                    <label>Store Logo</label>
+
+                    <input type="file"
+                           name="logo"
+                           accept="image/*">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Store Name</label>
+
+                    <input type="text"
+                           name="store_name"
+                           placeholder="Enter Store Name"
+                           required>
+
+                </div>
+
+            </div>
+
+            <!-- Owner Information -->
+
+            <div class="section">
+
+                <h2>Owner Information</h2>
+
+                <div class="grid">
+
+                    <div class="input-group">
+
+                        <label>Owner Name</label>
+
+                        <input type="text"
+                               name="owner_name"
+                               required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>Email</label>
+
+                        <input type="email"
+                               name="email"
+                               required>
+
+                    </div>
+
+                </div>
+
+                <div class="grid">
+
+                    <div class="input-group">
+
+                        <label>Mobile</label>
+
+                        <input type="text"
+                               name="mobile"
+                               maxlength="10"
+                               required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>GST Number (Optional)</label>
+
+                        <input type="text"
+                               name="gst_number">
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Store Address</label>
+
+                    <textarea name="address"
+                              rows="4"
+                              required></textarea>
+
+                </div>
+
+            </div>
+
+            <!-- Security -->
+
+            <div class="section">
+
+                <h2>Security</h2>
+
+                <div class="grid">
+
+                    <div class="input-group">
+
+                        <label>Password</label>
+
+                        <input type="password"
+                               name="password"
+                               required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>Confirm Password</label>
+
+                        <input type="password"
+                               name="confirm_password"
+                               required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Terms -->
+
+            <div class="terms">
+
+                <input type="checkbox"
+                       required>
+
+                <span>
+
+                    I agree to the Vendor Terms & Conditions
+
+                </span>
+
+            </div>
+
+            <button type="submit"
+                    class="register-btn">
+
+                Register as Vendor
+
+            </button>
+
+        </form>
+
+        <div class="bottom">
+
+            Already have an account?
+
+            <a href="/vendor/login">
+
+                Login Here
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

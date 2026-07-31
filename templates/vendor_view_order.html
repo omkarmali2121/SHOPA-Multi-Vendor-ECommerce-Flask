@@ -1,0 +1,158 @@
+{% extends "vendor_base.html" %}
+
+{% block title %}
+Order Details | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/vendor_view_order.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+<h1>Order Details</h1>
+
+<a href="/vendor/orders"
+class="back-btn">
+
+← Back
+
+</a>
+
+</div>
+
+<div class="order-container">
+
+<div class="left">
+
+<h2>Product</h2>
+
+<img src="{{ url_for('static',
+filename='uploads/products/' + order['image']) }}"
+class="product-image">
+
+<h3>{{ order["product_name"] }}</h3>
+
+<table>
+
+<tr>
+
+<th>Quantity</th>
+
+<td>{{ order["quantity"] }}</td>
+
+</tr>
+
+<tr>
+
+<th>Price</th>
+
+<td>₹ {{ order["total_amount"] }}</td>
+
+</tr>
+
+<tr>
+
+<th>Payment</th>
+
+<td>{{ order["payment_method"] }}</td>
+
+</tr>
+
+<tr>
+
+<th>Status</th>
+
+<td>
+
+<span class="status {{ order['status']|lower }}">
+
+{{ order["status"] }}
+
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>Order Date</th>
+
+<td>{{ order["order_date"] }}</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="right">
+
+<h2>Customer Details</h2>
+
+<table>
+
+<tr>
+
+<th>Name</th>
+
+<td>{{ order["fullname"] }}</td>
+
+</tr>
+
+<tr>
+
+<th>Email</th>
+
+<td>{{ order["email"] }}</td>
+
+</tr>
+
+<tr>
+
+<th>Mobile</th>
+
+<td>{{ order["mobile"] }}</td>
+
+</tr>
+
+<tr>
+
+<th>Address</th>
+
+<td>{{ order["address"] }}</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<div class="actions">
+
+<a href="/vendor/update-status/{{ order['id'] }}"
+class="status-btn">
+
+Update Status
+
+</a>
+
+<a href="/download-invoice/{{ order['id'] }}"
+class="invoice-btn">
+
+Download Invoice
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

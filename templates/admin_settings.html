@@ -1,0 +1,87 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Settings | SHOPA
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin_settings.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="settings-card">
+
+        <h1>
+            <i class="fas fa-cog"></i>
+            Admin Settings
+        </h1>
+
+        <form action="/admin/settings"
+              method="POST">
+
+            <div class="form-group">
+                <label>Admin Name</label>
+
+                <input type="text"
+                       name="store_name"
+                       value="{{ settings[1] if settings else '' }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Admin Email</label>
+
+                <input type="email"
+                       name="store_email"
+                       value="{{ settings[2] if settings else '' }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Admin Phone</label>
+
+                <input type="text"
+                       name="store_phone"
+                       value="{{ settings[3] if settings else '' }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label></label>Admin Address</label>
+
+                <textarea name="store_address"
+                          rows="4"
+                          required>{{ settings[4] if settings else '' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Currency</label>
+
+                <select name="currency">
+
+                    <option value="INR">INR (₹)</option>
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+
+                </select>
+            </div>
+
+            <button type="submit"
+                    class="save-btn">
+
+                <i class="fas fa-save"></i>
+                Save Settings
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

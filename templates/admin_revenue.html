@@ -1,0 +1,68 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+Admin Revenue Analytice | SHOPA
+{% endblock %}
+
+{% block css %}
+   <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin_revenue.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Revenue Analytics Dashboard</h1>
+
+    <!-- Revenue Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <h2>₹{{ total_revenue }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <h2>{{ total_orders }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Average Order Value</h3>
+            <h2>₹{{ avg_order }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Delivered Orders</h3>
+            <h2>{{ delivered_orders }}</h2>
+        </div>
+
+    </div>
+
+    <!-- Revenue Chart -->
+
+    <div class="chart-box">
+
+        <h2>Monthly Revenue</h2>
+
+        <canvas id="revenueChart"></canvas>
+
+    </div>
+
+</div>
+<script>
+const ctx = document.getElementById('revenueChart');
+new Chart(ctx, {
+    type: 'bar',
+    data: { labels: {{ months|tojson }},
+    datasets: [{
+        label: 'Revenue (₹)',
+        data: {{ revenue_data|tojson }},
+    borderWidth: 2 }] },
+    options: {
+        responsive: true,
+    plugins: { legend: { display: true } }
+}});
+</script>
+{% endblock %}

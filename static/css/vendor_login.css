@@ -1,0 +1,194 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:linear-gradient(135deg,#4f46e5,#312e81);
+}
+
+.login-container{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+}
+
+.login-card{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.login-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.logo{
+
+    width:90px;
+
+    margin-bottom:15px;
+
+}
+
+.login-header h1{
+
+    color:#312e81;
+
+    margin-bottom:10px;
+
+}
+
+.login-header p{
+
+    color:#666;
+
+}
+
+.input-box{
+
+    margin-bottom:20px;
+
+}
+
+.input-box label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.input-box input:focus{
+
+    border-color:#4f46e5;
+
+    box-shadow:0 0 0 4px rgba(79,70,229,.15);
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#4f46e5;
+
+    color:#fff;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#312e81;
+
+}
+
+.bottom-links{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:25px;
+
+}
+
+.bottom-links a{
+
+    text-decoration:none;
+
+    color:#4f46e5;
+
+    font-size:14px;
+
+}
+
+.bottom-links a:hover{
+
+    text-decoration:underline;
+
+}
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-card {
+        padding: 25px;
+    }
+
+    .bottom-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+}

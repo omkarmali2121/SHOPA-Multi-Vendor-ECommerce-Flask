@@ -1,0 +1,138 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+.container{
+    width:95%;
+    margin:auto;
+    padding:30px 0;
+}
+
+.header{
+    margin-bottom:20px;
+}
+
+.table-container{
+    background:var(--surface);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px var(--shadow);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:var(--surface-alt);
+    color:var(--text);
+}
+
+th,td{
+    padding:15px;
+    border-bottom:1px solid var(--border);
+    color:var(--text);
+}
+
+.status{
+    padding:6px 12px;
+    border-radius:20px;
+    color:white;
+    font-size:14px;
+}
+
+.pending{
+    background:#ffc107;
+}
+
+.shipped{
+    background:#0d6efd;
+}
+
+.delivered{
+    background:#198754;
+}
+
+.view-btn,
+.ship-btn,
+.deliver-btn{
+    text-decoration:none;
+    color:white;
+    padding:8px 12px;
+    border-radius:5px;
+    margin-right:5px;
+}
+
+.view-btn{
+    background:#6c757d;
+}
+
+.ship-btn{
+    background:#0d6efd;
+}
+
+.deliver-btn{
+    background:#198754;
+}
+
+.status{
+
+    padding:7px 14px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.pending{
+
+    background:#ffc107;
+    color:black;
+
+}
+
+.confirmed{
+
+    background:#0d6efd;
+
+}
+
+.shipped{
+
+    background:#6f42c1;
+
+}
+
+.delivered{
+
+    background:#198754;
+
+}
+
+.cancelled{
+
+    background:#dc3545;
+
+}
+
+@media(max-width:768px){
+
+.table-container{
+    overflow-x:auto;
+}
+
+}

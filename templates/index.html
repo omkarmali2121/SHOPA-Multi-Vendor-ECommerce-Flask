@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Home | SHOPA
+{% endblock %}
+    
+{% block css %}
+<link rel="stylesheet" 
+          href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+
+    <div class="container text-center">
+
+        <h1>Welcome To Shopa</h1>
+
+        <p>Best Products At Best Prices</p>
+
+        <a href="{{ url_for('products') }}" class="btn btn-primary">Shop Now</a>
+
+    </div>
+
+</section>
+
+<!-- Products -->
+<section class="container py-5">
+
+    <h2 class="text-center mb-5">Latest Products</h2>
+
+    <div class="row">
+
+       {% for product in products %}
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        
+            <div class="card product-card">
+        
+                <img src="{{ url_for(
+                    'static',
+                    filename='uploads/products/' + product['image']
+                ) }}" class="card-img-top">
+        
+                <div class="card-body text-center">
+        
+                    <h5>{{ product['product_name'] }}</h5>
+        
+                    <p class="price">
+                        ₹{{ product['price'] }}
+                    </p>
+        
+                    <p>
+                        {{ product['category'] }}
+                    </p>
+        
+                    <a href="/view-product/{{ product['id'] }}" 
+                        class="btn btn-primary w-100 mt-2">
+        
+                        View Product
+        
+                    </a>
+
+                    <a href="/wishlist/add/{{ item['id'] }}" class="wishlist-btn">
+                    
+                        <i class="fa-solid fa-heart"></i>
+                    
+                    </a>
+
+                    <a href="/cart/add/{{ product['id'] }}"
+                        class="btn btn-success w-100 mt-2">
+
+                        <i class="fas fa-cart-shopping"></i>
+
+                        Add To Cart
+
+                    </a>
+        
+                </div>
+        
+            </div>
+        
+        </div>
+        
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- Features -->
+<section class="features">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4 text-center">
+                <i class="fas fa-truck fa-3x"></i>
+                <h3>Free Shipping</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Dignissimos impedit id accusamus quas maxime expedita nostrum 
+                    atque delectus deleniti ad modi repellat debitis ipsam quisquam 
+                    amet, odit voluptate recusandae distinctio? Perferendis tenetur 
+                    quibusdam porro dolor dignissimos id magnam debitis vitae
+                </p>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <i class="fas fa-lock fa-3x"></i>
+                <h3>Secure Payment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dignissimos impedit id accusamus quas maxime expedita nostrum 
+                    atque delectus deleniti ad modi repellat debitis ipsam quisquam 
+                    amet, odit voluptate recusandae distinctio? Perferendis tenetur 
+                    quibusdam porro dolor dignissimos id magnam debitis vitae
+                </p>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <i class="fas fa-headset fa-3x"></i>
+                <h3>24/7 Support</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Dignissimos impedit id accusamus quas maxime expedita nostrum 
+                    atque delectus deleniti ad modi repellat debitis ipsam quisquam 
+                    amet, odit voluptate recusandae distinctio? Perferendis tenetur 
+                    quibusdam porro dolor dignissimos id magnam debitis vitae
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

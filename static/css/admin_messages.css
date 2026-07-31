@@ -1,0 +1,112 @@
+.message-container{
+    width:100%;
+    padding:20px;
+}
+
+.message-container h1{
+    color:#1e293b;
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.table{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.table thead{
+    background:#1e293b;
+    color:white;
+}
+
+.table th,
+.table td{
+    padding:15px;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.table tbody td:nth-child(5){
+    max-width:300px;
+    text-align:left;
+    word-break:break-word;
+}
+
+.table tbody tr:hover{
+    background:#f8fafc;
+}
+
+.view-btn,
+.reply-btn,
+.delete-btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    margin-right:6px;
+
+    transition:.3s;
+
+}
+
+.view-btn{
+
+    background:#0d6efd;
+
+}
+
+.view-btn:hover{
+
+    background:#0b5ed7;
+
+}
+
+.reply-btn{
+
+    background:#198754;
+
+}
+
+.reply-btn:hover{
+
+    background:#157347;
+
+}
+
+.delete-btn{
+
+    background:#dc3545;
+
+}
+
+.delete-btn:hover{
+
+    background:#bb2d3b;
+
+}
+
+@media(max-width:768px){
+    .message-container{
+        padding:10px;
+    }
+
+    .message-container h1{
+        font-size:28px;
+    }
+}

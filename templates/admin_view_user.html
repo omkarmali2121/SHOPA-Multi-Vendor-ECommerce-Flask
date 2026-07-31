@@ -1,0 +1,42 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+View User | SHOPA
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin_view_user.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>User Details</h2>
+
+    <div class="card">
+
+        <p><strong>ID :</strong> {{ user["id"] }}</p>
+
+        <p><strong>Name :</strong> {{ user["fullname"] }}</p>
+
+        <p><strong>Email :</strong> {{ user["email"] }}</p>
+
+        <p><strong>Mobile :</strong> {{ user["mobile"] }}</p>
+
+        <p><strong>Address :</strong> {{ user["address"] }}</p>
+
+        <p><strong>Joined :</strong> {{ user["created_at"] }}</p>
+
+        <a href="/admin/users" class="btn btn-primary">
+            Back
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

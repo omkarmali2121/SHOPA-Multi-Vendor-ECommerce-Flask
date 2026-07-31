@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+.dashboard{
+    display:flex;
+    width: 95%;
+    margin: auto;
+}
+
+/* Main */
+
+.content{
+    padding:30px;
+    width: 100%;
+    margin: auto;
+}
+
+.main-content h1{
+    margin-bottom:25px;
+}
+
+/* Cards */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-bottom:30px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+.card {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card{
+
+    background:var(--surface);
+    color:var(--text);
+    padding:25px;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 10px var(--shadow);
+}
+
+.card h3{
+    color:var(--muted);
+}
+
+.card p{
+    font-size:28px;
+    font-weight:bold;
+    color:var(--accent);
+    margin-top:10px;
+}
+
+/* Table */
+
+.table-section{
+
+    background:var(--surface);
+
+    padding:20px;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 10px var(--shadow);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th,
+table td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:left;
+}
+
+table th{
+    background:var(--surface-alt);
+    color:var(--text);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.dashboard{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+    min-height:auto;
+}
+
+}

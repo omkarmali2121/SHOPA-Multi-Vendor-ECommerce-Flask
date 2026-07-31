@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}
+Order Details | SHOPA
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{{ url_for('static',
+filename='css/order_details.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+<div class="container py-5">
+
+    <h2 class="mb-4">
+
+        Order Details
+
+    </h2>
+
+    <div class="order-box">
+
+        <!-- Left -->
+
+        <div class="product-section">
+
+            <img src="{{ url_for(
+                        'static',
+                        filename='uploads/products/' + order['image']
+                        ) }}">
+
+            <h3>
+
+                {{ order["product_name"] }}
+
+            </h3>
+
+            <p>
+
+                {{ order["description"] }}
+
+            </p>
+
+            <p>
+
+                Price :
+
+                ₹{{ order["price"] }}
+
+            </p>
+
+            <p>
+
+                Quantity :
+
+                {{ order["quantity"] }}
+
+            </p>
+
+            <p>
+
+                Total :
+
+                ₹{{ order["total_amount"] }}
+
+            </p>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="customer-section">
+
+            <h3>
+
+                Customer Details
+
+            </h3>
+
+            <hr>
+
+            <p>
+
+                <b>Name :</b>
+
+                {{ order["fullname"] }}
+
+            </p>
+
+            <p>
+
+                <b>Email :</b>
+
+                {{ order["email"] }}
+
+            </p>
+
+            <p>
+
+                <b>Mobile :</b>
+
+                {{ order["mobile"] }}
+
+            </p>
+
+            <p>
+
+                <b>Address :</b>
+
+                {{ order["address"] }}
+
+            </p>
+
+            <hr>
+
+            <p>
+
+                <b>Payment :</b>
+
+                {{ order["payment_method"] }}
+
+            </p>
+
+            <p>
+
+                <b>Order Date :</b>
+
+                {{ order["order_date"] }}
+
+            </p>
+
+            <p>
+
+                <b>Status :</b>
+
+                <span class="status">
+
+                    {{ order["status"] }}
+
+                </span>
+
+            </p>
+
+            <div class="tracking-card">
+            
+                <h2>Order Tracking</h2>
+            
+                <div class="tracking">
+            
+                    <!-- Pending -->
+                    <div class="step active">
+                        <div class="circle">
+                            <i class="fas fa-check"></i>
+                        </div>
+            
+                        <p>Pending</p>
+            
+                        <small>{{ order["order_date"] }}</small>
+                    </div>
+            
+                    <div class="line active"></div>
+            
+                    <!-- Confirmed -->
+                    <div class="step {% if order['status'] in ['Confirmed','Shipped','Delivered'] %}active{% endif %}">
+            
+                        <div class="circle">
+            
+                            {% if order["status"] in ["Confirmed","Shipped","Delivered"] %}
+                            <i class="fas fa-check"></i>
+                            {% endif %}
+            
+                        </div>
+            
+                        <p>Confirmed</p>
+            
+                        <small>Waiting</small>
+            
+                    </div>
+            
+                    <div class="line {% if order['status'] in ['Shipped','Delivered'] %}active{% endif %}"></div>
+            
+                    <!-- Shipped -->
+            
+                    <div class="step {% if order['status'] in ['Shipped','Delivered'] %}active{% endif %}">
+            
+                        <div class="circle">
+            
+                            {% if order["status"] in ["Shipped","Delivered"] %}
+                            <i class="fas fa-check"></i>
+                            {% endif %}
+            
+                        </div>
+            
+                        <p>Shipped</p>
+            
+                        <small>Waiting</small>
+            
+                    </div>
+            
+                    <div class="line {% if order['status']=='Delivered' %}active{% endif %}"></div>
+            
+                    <!-- Delivered -->
+            
+                    <div class="step {% if order['status']=='Delivered' %}active{% endif %}">
+            
+                        <div class="circle">
+            
+                            {% if order["status"]=="Delivered" %}
+                            <i class="fas fa-check"></i>
+                            {% endif %}
+            
+                        </div>
+            
+                        <p>Delivered</p>
+            
+                        <small>Waiting</small>
+            
+                    </div>
+            
+                </div>
+            
+            </div>
+            
+
+            <a href="{{ url_for('download_invoice',order_id=order['id']) }}" class="btn btn-success">
+
+                 <i class="fas fa-file-pdf"></i>
+
+                Download Invoice
+
+            </a>
+
+        </div>
+
+    </div>
+
+{% endblock %}

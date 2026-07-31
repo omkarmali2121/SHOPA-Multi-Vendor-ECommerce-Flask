@@ -1,0 +1,270 @@
+/* ==========================================
+   SHOPA Vendor Profile
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+/* ===============================
+   Container
+================================ */
+
+.profile-container{
+    padding:25px;
+}
+
+.profile-card{
+
+    display:flex;
+
+    gap:30px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ===============================
+   Left Profile
+================================ */
+
+.profile-left{
+
+    width:300px;
+
+    text-align:center;
+
+    border-right:1px solid #e5e7eb;
+
+    padding-right:30px;
+
+}
+
+.profile-image{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:6px solid #2563eb;
+
+    margin-bottom:20px;
+
+    transition:.35s;
+
+}
+
+.profile-image:hover{
+
+    transform:scale(1.05);
+
+}
+
+.profile-left h2{
+
+    color:#1e293b;
+
+    margin-bottom:8px;
+
+}
+
+.profile-left p{
+
+    color:#64748b;
+
+    margin-bottom:25px;
+
+}
+
+.edit-btn{
+
+    display:inline-block;
+
+    padding:12px 25px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ===============================
+   Right Section
+================================ */
+
+.profile-right{
+
+    flex:1;
+
+}
+
+.profile-right h2{
+
+    color:#1e293b;
+
+    margin-bottom:25px;
+
+}
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.info-box{
+
+    background:#f8fafc;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    border-left:5px solid #2563eb;
+
+}
+
+.info-box label{
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+}
+
+.info-box span{
+
+    color:#1e293b;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.full{
+
+    grid-column:1 / -1;
+
+}
+
+.status{
+
+    color:#16a34a;
+
+}
+
+/* ===============================
+   Responsive
+================================ */
+
+@media(max-width:992px){
+
+.profile-card{
+
+flex-direction:column;
+
+}
+
+.profile-left{
+
+width:100%;
+
+border-right:none;
+
+border-bottom:1px solid #e5e7eb;
+
+padding-right:0;
+
+padding-bottom:25px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.info-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.profile-container{
+
+padding:15px;
+
+}
+
+.profile-card{
+
+padding:20px;
+
+}
+
+.profile-image{
+
+width:140px;
+
+height:140px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.profile-right h2{
+
+font-size:22px;
+
+}
+
+.profile-left h2{
+
+font-size:24px;
+
+}
+
+.edit-btn{
+
+width:100%;
+
+}
+
+}
